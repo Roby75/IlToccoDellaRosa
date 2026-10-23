@@ -2,6 +2,11 @@
    i contenuti si cambiano in config.js e dati.js. */
 (function () {
   var S = window.SITO || {};
+
+  /* modalità manutenzione: tutte le pagine portano a manutenzione.html, e viceversa quando è spenta */
+  var inManutenzione = /manutenzione\.html$/.test(location.pathname);
+  if (S.manutenzione && !inManutenzione) { location.replace("manutenzione.html"); return; }
+  if (!S.manutenzione && inManutenzione) { location.replace("index.html"); return; }
   var ICONA_ROSA = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M24 30c-7 0-11-5-11-11 4 0 7 1 9 3 0-5 1-9 2-12 1 3 2 7 2 12 2-2 5-3 9-3 0 6-4 11-11 11Z"/><path d="M24 30v12M24 38c-3-3-6-4-9-4M24 36c2-2 5-3 8-3"/></svg>';
 
   function esc(t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
