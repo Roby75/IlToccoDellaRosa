@@ -18,6 +18,10 @@ Le modifiche si possono fare direttamente da github.com: apri il file, clicca la
 
 **Pubblicare un cucciolo:** aggiungi una riga in `CUCCIOLI` dentro `assets/dati.js` (c'è un esempio già scritto). Quando la lista è vuota il sito mostra in automatico il messaggio della lista d'attesa.
 
+## Mettere il sito in manutenzione
+
+In `assets/config.js` cambia `manutenzione: false` in `manutenzione: true` e salva: dopo circa un minuto tutte le pagine mostrano solo l'avviso "Sito in manutenzione" con il pulsante WhatsApp. Per riaprire il sito rimetti `false`.
+
 ## Modulo di contatto (Web3Forms)
 
 1. Vai su <https://web3forms.com>, inserisci l'email dove vuoi ricevere i messaggi e premi **Create Access Key**.
