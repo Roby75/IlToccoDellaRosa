@@ -10,7 +10,6 @@ window.CANI = [
   // Fattrici
   { nome: "Bia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Uma",    padre: "Gino",    origine: "Nata da noi", foto: "" },
   { nome: "Klara",   sesso: "F", nascita: "2024", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Legolas", origine: "Nata da noi", foto: "" },
-  { nome: "Lamù",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Tricolore",     madre: "Lia",    padre: "Wizard",  origine: "Nata da noi", foto: "" },
   { nome: "Leda",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Crema",         madre: "Magic Diamond Lady", padre: "Inventor Dragon", origine: "Allevamento italiano", foto: "" },
   { nome: "Lia",     sesso: "F", nascita: "2023", pelo: "PL", colore: "Nero tricolor", madre: "Breakfast at Tiffany's", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "" },
   { nome: "Linda",   sesso: "F", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Wizard",  origine: "Nata da noi", foto: "" },
