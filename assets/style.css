@@ -208,3 +208,31 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 @media (prefers-reduced-motion:no-preference){
   .btn,.filtri button,nav.principale a{transition:background-color .15s,filter .15s}
 }
+
+/* ---------- animazioni (solo con mouse e se l'utente non ha chiesto meno movimento) ---------- */
+.apertura{position:relative;overflow:hidden;isolation:isolate}
+.apertura .alone{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .6s;
+  background:radial-gradient(28rem circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--rosa) 16%,transparent),transparent 70%)}
+.apertura:hover .alone{opacity:1}
+.petali{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.petali span{position:absolute;width:var(--s,18px);height:var(--s,18px);border-radius:80% 0 80% 0;
+  background:linear-gradient(135deg,var(--rosa-soft),color-mix(in srgb,var(--rosa) 35%,transparent));opacity:.55;
+  translate:var(--px,0) var(--py,0);transition:translate .9s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:no-preference){
+  .petali span{animation:fluttua var(--d,14s) ease-in-out infinite alternate}
+  @keyframes fluttua{from{transform:translateY(0) rotate(0deg)}to{transform:translateY(-38px) rotate(160deg)}}
+  .inclina{transition:transform .25s ease-out,box-shadow .25s;transform-style:preserve-3d;will-change:transform}
+  .inclina:hover{box-shadow:0 18px 40px -18px color-mix(in srgb,var(--rosa) 45%,transparent)}
+  .cane .petalo img,.galleria .petalo img,.apertura .petalo img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .cane:hover .petalo img,.galleria button:hover .petalo img{transform:scale(1.06)}
+  .btn{transition:transform .2s,background-color .15s,filter .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px color-mix(in srgb,var(--rosa) 60%,transparent)}
+  .punto .segno{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+  .punto:hover .segno{transform:scale(1.15) rotate(-8deg)}
+  .marchio svg{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+  .marchio:hover svg{transform:rotate(-14deg) scale(1.1)}
+  .tempo li::before{transition:transform .3s}
+  .tempo li:hover::before{transform:scale(1.5)}
+  .entra{transform:translateY(18px);opacity:.01;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
+  .entra.vista{transform:none;opacity:1}
+}

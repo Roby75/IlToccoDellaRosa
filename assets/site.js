@@ -36,6 +36,59 @@
   });
   document.querySelectorAll("[data-anno]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+
+  /* animazioni: alone e petali che seguono il mouse, schede che si inclinano, sezioni che entrano */
+  var movimento = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var ap = document.querySelector(".apertura");
+  if (ap && movimento) {
+    var alone = document.createElement("div"); alone.className = "alone"; ap.prepend(alone);
+    var petali = document.createElement("div"); petali.className = "petali"; petali.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 14; i++) {
+      var p = document.createElement("span");
+      p.style.left = (Math.random() * 100) + "%"; p.style.top = (Math.random() * 100) + "%";
+      p.style.setProperty("--s", (10 + Math.random() * 18) + "px");
+      p.style.setProperty("--d", (9 + Math.random() * 10) + "s");
+      p.style.animationDelay = (-Math.random() * 12) + "s";
+      p.dataset.k = (0.3 + Math.random()).toFixed(2);
+      petali.appendChild(p);
+    }
+    ap.prepend(petali);
+    if (mouse) ap.addEventListener("pointermove", function (e) {
+      var r = ap.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      ap.style.setProperty("--mx", x + "px"); ap.style.setProperty("--my", y + "px");
+      var dx = (x / r.width - .5) * 60, dy = (y / r.height - .5) * 60;
+      petali.querySelectorAll("span").forEach(function (s) {
+        s.style.setProperty("--px", (-dx * s.dataset.k) + "px"); s.style.setProperty("--py", (-dy * s.dataset.k) + "px");
+      });
+    });
+  }
+  function inclina(el) {
+    el.classList.add("inclina");
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      var rx = ((e.clientY - r.top) / r.height - .5) * -7, ry = ((e.clientX - r.left) / r.width - .5) * 7;
+      el.style.transform = "perspective(800px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) translateY(-4px)";
+    });
+    el.addEventListener("pointerleave", function () { el.style.transform = ""; });
+  }
+  function animaSchede() {
+    if (movimento && mouse) document.querySelectorAll(".cane:not(.inclina), .apertura .petalo:not(.inclina), .riquadro:not(.inclina), form.modulo:not(.inclina)").forEach(function (el) {
+      if (el.matches("form.modulo")) return; inclina(el);
+    });
+  }
+  window.animaSchede = animaSchede;
+  if (movimento && "IntersectionObserver" in window) {
+    var oss = new IntersectionObserver(function (voci) {
+      voci.forEach(function (v) { if (v.isIntersecting) { v.target.classList.add("vista"); oss.unobserve(v.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".sezione .intestazione, .punto, .tempo li, .duo > *, .persona").forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) return; /* ciò che si vede già all'apertura resta fermo */
+      el.classList.add("entra"); oss.observe(el);
+    });
+  }
+
   /* scheda di un cane o cucciolo */
   function foto(file, alt) {
     if (file) return '<div class="petalo"><img src="foto/' + esc(file) + '" alt="' + esc(alt) + '" loading="lazy"></div>';
@@ -68,6 +121,7 @@
         return filtro === "tutti" || filtro === c.sesso || filtro === c.pelo;
       });
       gCani.innerHTML = lista.map(function (c) { return scheda(c, false); }).join("") || '<p class="muted">Nessun cane per questo filtro.</p>';
+      animaSchede();
     };
     document.querySelectorAll(".filtri button").forEach(function (b) {
       b.addEventListener("click", function () {
@@ -153,4 +207,5 @@
         .then(function () { invia.disabled = false; invia.textContent = "Invia il messaggio"; });
     });
   }
+  animaSchede();
 })();
