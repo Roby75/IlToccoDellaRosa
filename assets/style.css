@@ -210,17 +210,20 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 }
 
 /* ---------- animazioni (solo con mouse e se l'utente non ha chiesto meno movimento) ---------- */
-.apertura{position:relative;overflow:hidden;isolation:isolate}
-.apertura .alone{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .6s;
+.con-petali{position:relative;overflow:hidden;isolation:isolate}
+.con-petali .alone{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .6s;
   background:radial-gradient(28rem circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--rosa) 16%,transparent),transparent 70%)}
-.apertura:hover .alone{opacity:1}
+.con-petali:hover .alone{opacity:1}
 .petali{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.petali span{position:absolute;width:var(--s,18px);height:var(--s,18px);border-radius:80% 0 80% 0;
-  background:linear-gradient(135deg,var(--rosa-soft),color-mix(in srgb,var(--rosa) 35%,transparent));opacity:.55;
-  translate:var(--px,0) var(--py,0);transition:translate .9s cubic-bezier(.2,.7,.2,1)}
+.petali span{position:absolute;top:0;width:var(--s,18px);height:var(--s,18px);
+  translate:var(--px,0) var(--py,0);transition:translate 1s cubic-bezier(.2,.7,.2,1)}
+.petali i{display:block;width:100%;height:100%;border-radius:80% 0 80% 0;opacity:.7;
+  background:linear-gradient(135deg,var(--rosa-soft),color-mix(in srgb,var(--rosa) 45%,transparent))}
 @media (prefers-reduced-motion:no-preference){
-  .petali span{animation:fluttua var(--d,14s) ease-in-out infinite alternate}
-  @keyframes fluttua{from{transform:translateY(0) rotate(0deg)}to{transform:translateY(-38px) rotate(160deg)}}
+  .petali span{animation:cade var(--d,16s) linear infinite}
+  .petali i{animation:dondola calc(var(--d,16s) / 4) ease-in-out infinite alternate}
+  @keyframes cade{from{transform:translateY(-40px)}to{transform:translateY(var(--h,600px))}}
+  @keyframes dondola{from{transform:translateX(-18px) rotate(-30deg)}to{transform:translateX(18px) rotate(140deg)}}
   .inclina{transition:transform .25s ease-out,box-shadow .25s;transform-style:preserve-3d;will-change:transform}
   .inclina:hover{box-shadow:0 18px 40px -18px color-mix(in srgb,var(--rosa) 45%,transparent)}
   .cane .petalo img,.galleria .petalo img,.apertura .petalo img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}

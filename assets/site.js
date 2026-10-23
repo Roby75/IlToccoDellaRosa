@@ -40,20 +40,25 @@
   /* animazioni: alone e petali che seguono il mouse, schede che si inclinano, sezioni che entrano */
   var movimento = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  var ap = document.querySelector(".apertura");
+  var ap = document.querySelector("main > section:first-child");
   if (ap && movimento) {
+    ap.classList.add("con-petali");
     var alone = document.createElement("div"); alone.className = "alone"; ap.prepend(alone);
     var petali = document.createElement("div"); petali.className = "petali"; petali.setAttribute("aria-hidden", "true");
-    for (var i = 0; i < 14; i++) {
+    var quanti = mouse ? 18 : 9;
+    for (var i = 0; i < quanti; i++) {
       var p = document.createElement("span");
-      p.style.left = (Math.random() * 100) + "%"; p.style.top = (Math.random() * 100) + "%";
-      p.style.setProperty("--s", (10 + Math.random() * 18) + "px");
-      p.style.setProperty("--d", (9 + Math.random() * 10) + "s");
-      p.style.animationDelay = (-Math.random() * 12) + "s";
+      p.appendChild(document.createElement("i"));
+      p.style.left = (Math.random() * 100) + "%";
+      p.style.setProperty("--s", (10 + Math.random() * 16) + "px");
+      p.style.setProperty("--d", (12 + Math.random() * 12) + "s");
+      p.style.animationDelay = (-Math.random() * 24) + "s";
       p.dataset.k = (0.3 + Math.random()).toFixed(2);
       petali.appendChild(p);
     }
     ap.prepend(petali);
+    var altezza = function () { petali.style.setProperty("--h", (ap.offsetHeight + 40) + "px"); };
+    altezza(); window.addEventListener("resize", altezza);
     if (mouse) ap.addEventListener("pointermove", function (e) {
       var r = ap.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
       ap.style.setProperty("--mx", x + "px"); ap.style.setProperty("--my", y + "px");
