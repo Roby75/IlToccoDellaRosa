@@ -3,16 +3,16 @@
    ========================================================= */
 window.SITO = {
   // Numero WhatsApp Business con prefisso internazionale, solo cifre (es. "393331234567").
-  whatsapp: "",
+  whatsapp: "393517128012",
   // Come vuoi che il numero appaia scritto sul sito (es. "+39 333 123 4567").
-  whatsappVisibile: "",
+  whatsappVisibile: "+39 351 712 8012",
   // Email dell'allevamento.
-  email: "",
+  email: "roberto.betori@roby75.it",
   // Zona / città dell'allevamento (es. "Provincia di Roma").
   zona: "",
   // Chiave Web3Forms per ricevere i messaggi del modulo contatti via email.
   // Si ottiene gratis su https://web3forms.com inserendo l'email dell'allevamento.
-  web3formsKey: "",
+  web3formsKey: "99ec8817-0f24-48a8-a62d-a24859a38bcc",
   // Foto di copertina della home: nome del file nella cartella foto/ (es. "copertina.jpg").
   copertina: "",
   // Pagina Facebook.
