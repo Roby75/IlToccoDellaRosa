@@ -1,0 +1,5 @@
+Metti qui le foto del sito (JPG o WEBP, lato lungo circa 1600 pixel, meglio sotto i 400 KB).
+Poi scrivi il nome del file in assets/dati.js:
+ - per un cane: nel campo foto della sua riga, es. foto: "klara.jpg"
+ - per la galleria: aggiungi { file: "klara-prato.jpg", testo: "Klara in giardino" }
+Copertina della home: scrivi il nome del file nel campo copertina di assets/config.js.
