@@ -9,7 +9,7 @@ window.SITO = {
   // Email dell'allevamento.
   email: "roberto.betori@roby75.it",
   // Zona / città dell'allevamento (es. "Provincia di Roma").
-  zona: "",
+  zona: "Isola della Scala (Verona)",
   // Chiave Web3Forms per ricevere i messaggi del modulo contatti via email.
   // Si ottiene gratis su https://web3forms.com inserendo l'email dell'allevamento.
   web3formsKey: "99ec8817-0f24-48a8-a62d-a24859a38bcc",
