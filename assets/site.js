@@ -94,6 +94,23 @@
     });
   }
 
+
+  /* dissolvenza in uscita quando si va su un'altra pagina del sito */
+  if (movimento) {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest("a[href]");
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || !/\.html$|\/$/.test(url.pathname)) return;
+      if (url.pathname === location.pathname && url.hash) return;
+      e.preventDefault();
+      document.documentElement.classList.add("in-uscita");
+      setTimeout(function () { location.href = url.href; }, 180);
+    });
+    window.addEventListener("pageshow", function (e) { if (e.persisted) document.documentElement.classList.remove("in-uscita"); });
+  }
+
   /* scheda di un cane o cucciolo */
   function foto(file, alt) {
     if (file) return '<div class="petalo"><img src="foto/' + esc(file) + '" alt="' + esc(alt) + '" loading="lazy"></div>';

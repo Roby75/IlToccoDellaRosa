@@ -239,3 +239,10 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
   .entra{transform:translateY(18px);opacity:.01;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
   .entra.vista{transform:none;opacity:1}
 }
+
+/* dissolvenza nel passaggio tra le pagine */
+@media (prefers-reduced-motion:no-preference){
+  main,footer.piede{animation:compare .35s ease-out both}
+  @keyframes compare{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  html.in-uscita main,html.in-uscita footer.piede{opacity:0;transform:translateY(-4px);transition:opacity .18s ease-in,transform .18s ease-in}
+}
