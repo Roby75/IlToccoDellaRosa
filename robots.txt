@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /manutenzione.html
+
+Sitemap: https://www.iltoccodellarosa.it/sitemap.xml
