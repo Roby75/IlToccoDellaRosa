@@ -14,7 +14,7 @@ window.SITO = {
   zona: "Isola della Scala (Verona)",
   // Chiave Web3Forms per ricevere i messaggi del modulo contatti via email.
   // Si ottiene gratis su https://web3forms.com inserendo l'email dell'allevamento.
-  web3formsKey: "99ec8817-0f24-48a8-a62d-a24859a38bcc",
+  web3formsKey: "00769613-7ac1-44c6-b041-0d73744eadc9",
   // Foto di copertina della home: nome del file nella cartella foto/ (es. "copertina.jpg").
   copertina: "",
   // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
