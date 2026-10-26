@@ -161,6 +161,11 @@
     });
     disegna();
   }
+  var gVet = document.getElementById("griglia-veterani");
+  if (gVet) {
+    gVet.innerHTML = (window.CANI || []).filter(function (c) { return c.veterano; }).map(function (c) { return scheda(c, false); }).join("");
+    animaSchede();
+  }
 
   /* pagina Cuccioli */
   var gCuc = document.getElementById("griglia-cuccioli");
