@@ -22,7 +22,7 @@ window.CANI = [
   { nome: "King",    sesso: "M", nascita: "2025", pelo: "PL", colore: "Tricolore",     madre: "Klara",  padre: "Kotaro",  origine: "Nato da noi", foto: "", dna: true, test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Kotaro",  sesso: "M", nascita: "2018", pelo: "PL", colore: "Nero tricolor", madre: "Little Prince's Beautiful Song", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "", dna: true },
   { nome: "Legolas", sesso: "M", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Amazing Dream Keeping It Special", padre: "Amazing Dream Victorius Legolas", origine: "Amazing Dream (Norvegia)", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
-  { nome: "Mario",   sesso: "M", nascita: "2025", pelo: "PL", colore: "",              madre: "Honey Nika", padre: "Shah Arpilin Simon", origine: "Radostnii Angelgrad (Moldavia)", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
+  { nome: "Mario",   sesso: "M", nascita: "2025", pelo: "PL", colore: "",              madre: "Honey Nika", padre: "Shah Arpilin Simon", origine: "Radostnii Angelgrad (Moldavia)", foto: "", dna: true, test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Show",    sesso: "M", nascita: "2021", pelo: "PC", colore: "Crema",         madre: "The Cisco Miss", padre: "Al Capone", origine: "La Casa dei Giganti", foto: "", dna: true, test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Wizard",  sesso: "M", nascita: "2018", pelo: "PL", colore: "Crema",         madre: "Malena Chihua in Ukraine", padre: "Voxel UX Naruto", origine: "Chihua in Ukraine (Ucraina)", foto: "" }
 ];
