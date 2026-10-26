@@ -5,7 +5,8 @@
 
 /* I NOSTRI CANI
    sesso: "F" o "M" · pelo: "PL" (pelo lungo) o "PC" (pelo corto)
-   foto: nome del file nella cartella foto/ (lascia "" finché non c'è) */
+   foto: nome del file nella cartella foto/ (lascia "" finché non c'è)
+   test: test sanitari, es. test: [{ nome: "Lussazione rotulea", esito: "0/0" }] (togli il campo se non ci sono) */
 window.CANI = [
   // Fattrici
   { nome: "Bia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Uma",    padre: "Gino",    origine: "Nata da noi", foto: "" },
@@ -21,7 +22,7 @@ window.CANI = [
   { nome: "Kotaro",  sesso: "M", nascita: "2018", pelo: "PL", colore: "Nero tricolor", madre: "Little Prince's Beautiful Song", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "" },
   { nome: "Legolas", sesso: "M", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Amazing Dream Keeping It Special", padre: "Amazing Dream Victorius Legolas", origine: "Amazing Dream (Norvegia)", foto: "" },
   { nome: "Mario",   sesso: "M", nascita: "2025", pelo: "PL", colore: "",              madre: "Honey Nika", padre: "Shah Arpilin Simon", origine: "Radostnii Angelgrad (Moldavia)", foto: "" },
-  { nome: "Show",    sesso: "M", nascita: "2021", pelo: "PC", colore: "Crema",         madre: "The Cisco Miss", padre: "Al Capone", origine: "La Casa dei Giganti", foto: "" },
+  { nome: "Show",    sesso: "M", nascita: "2021", pelo: "PC", colore: "Crema",         madre: "The Cisco Miss", padre: "Al Capone", origine: "La Casa dei Giganti", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Wizard",  sesso: "M", nascita: "2018", pelo: "PL", colore: "Crema",         madre: "Malena Chihua in Ukraine", padre: "Voxel UX Naruto", origine: "Chihua in Ukraine (Ucraina)", foto: "" }
 ];
 

@@ -129,6 +129,7 @@
     righe += "<dt>" + (cucciolo ? "Nato il" : "Nascita") + "</dt><dd>" + esc(c.nascita) + "</dd>";
     if (c.madre || c.padre) righe += "<dt>Genitori</dt><dd>" + esc(c.madre) + " × " + esc(c.padre) + "</dd>";
     if (c.origine) righe += "<dt>Origine</dt><dd>" + esc(c.origine) + "</dd>";
+    if (c.test && c.test.length) righe += "<dt>Test sanitari</dt><dd>" + c.test.map(function (t) { return esc(t.nome) + ": <strong>" + esc(t.esito) + "</strong>"; }).join("<br>") + "</dd>";
     var stato = c.stato ? '<span class="etichetta ' + (c.stato === "Disponibile" ? "m" : "") + '">' + esc(c.stato) + "</span>" : "";
     return '<article class="cane">' + foto(c.foto, c.nome) +
       '<div class="corpo"><div class="etichette"><span class="etichetta ' + (c.sesso === "F" ? "f" : "m") + '">' + sesso + "</span>" +
