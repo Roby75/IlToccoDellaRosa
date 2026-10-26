@@ -21,6 +21,6 @@ window.SITO = {
   bannerCani: "",
   // Pagina Facebook.
   // Instagram: nome utente senza @ (es. "iltoccodellarosa"). Lascia "" per non mostrarlo.
-  instagram: "",
+  instagram: "iltoccodellarosa",
   facebook: "https://www.facebook.com/iltoccodellarosa/"
 };
