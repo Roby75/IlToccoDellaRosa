@@ -10,15 +10,15 @@
 window.CANI = [
   // Fattrici
   { nome: "Bia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Uma",    padre: "Gino",    origine: "Nata da noi", foto: "" },
-  { nome: "Klara",   sesso: "F", nascita: "2024", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Legolas", origine: "Nata da noi", foto: "" },
-  { nome: "Leda",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Crema",         madre: "Magic Diamond Lady", padre: "Inventor Dragon", origine: "Allevamento italiano", foto: "" },
+  { nome: "Klara",   sesso: "F", nascita: "2024", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Legolas", origine: "Nata da noi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
+  { nome: "Leda",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Crema",         madre: "Magic Diamond Lady", padre: "Inventor Dragon", origine: "Allevamento italiano", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Lia",     sesso: "F", nascita: "2023", pelo: "PL", colore: "Nero tricolor", madre: "Breakfast at Tiffany's", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "" },
   { nome: "Linda",   sesso: "F", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Wizard",  origine: "Nata da noi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Liz",     sesso: "F", nascita: "2023", pelo: "PC", colore: "Sabbia",        madre: "Evelyn del Pasador", padre: "Ciko del Pasador", origine: "del Pasador", foto: "" },
   { nome: "Melody",  sesso: "F", nascita: "2018", pelo: "PL", colore: "Crema",         madre: "Beso de Dios Zelena the Black Witch", padre: "Rebecca Rose Serse", origine: "Avada Kedavra", foto: "", nota: "Una delle nostre prime fattrici: oggi è in pensione e resta in famiglia con noi." },
   { nome: "Olivia",  sesso: "F", nascita: "2025", pelo: "PC", colore: "Fulva",         madre: "Liz",    padre: "Gino",    origine: "Nata da noi", foto: "" },
   // Stalloni
-  { nome: "King",    sesso: "M", nascita: "2025", pelo: "PL", colore: "Tricolore",     madre: "Klara",  padre: "Kotaro",  origine: "Nato da noi", foto: "" },
+  { nome: "King",    sesso: "M", nascita: "2025", pelo: "PL", colore: "Tricolore",     madre: "Klara",  padre: "Kotaro",  origine: "Nato da noi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Kotaro",  sesso: "M", nascita: "2018", pelo: "PL", colore: "Nero tricolor", madre: "Little Prince's Beautiful Song", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "" },
   { nome: "Legolas", sesso: "M", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Amazing Dream Keeping It Special", padre: "Amazing Dream Victorius Legolas", origine: "Amazing Dream (Norvegia)", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Mario",   sesso: "M", nascita: "2025", pelo: "PL", colore: "",              madre: "Honey Nika", padre: "Shah Arpilin Simon", origine: "Radostnii Angelgrad (Moldavia)", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
