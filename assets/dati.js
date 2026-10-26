@@ -12,7 +12,7 @@ window.CANI = [
   { nome: "Bia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Uma",    padre: "Gino",    origine: "Nata da noi", foto: "" },
   { nome: "Klara",   sesso: "F", nascita: "2024", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Legolas", origine: "Nata da noi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Leda",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Crema",         madre: "Magic Diamond Lady", padre: "Inventor Dragon", origine: "Allevamento italiano", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
-  { nome: "Lia",     sesso: "F", nascita: "2023", pelo: "PL", colore: "Nero tricolor", madre: "Breakfast at Tiffany's", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "" },
+  { nome: "Lia",     sesso: "F", nascita: "2023", pelo: "PL", colore: "Nero tricolor", madre: "Breakfast at Tiffany's", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/1" }] },
   { nome: "Linda",   sesso: "F", nascita: "2021", pelo: "PL", colore: "Crema",         madre: "Melody", padre: "Wizard",  origine: "Nata da noi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Liz",     sesso: "F", nascita: "2023", pelo: "PC", colore: "Sabbia",        madre: "Evelyn del Pasador", padre: "Ciko del Pasador", origine: "del Pasador", foto: "" },
   { nome: "Melody",  sesso: "F", nascita: "2018", pelo: "PL", colore: "Crema",         madre: "Beso de Dios Zelena the Black Witch", padre: "Rebecca Rose Serse", origine: "Avada Kedavra", foto: "", nota: "Una delle nostre prime fattrici: oggi è in pensione e resta in famiglia con noi." },
