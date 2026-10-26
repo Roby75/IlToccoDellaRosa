@@ -17,7 +17,7 @@ window.SITO = {
   web3formsKey: "99ec8817-0f24-48a8-a62d-a24859a38bcc",
   // Foto di copertina della home: nome del file nella cartella foto/ (es. "copertina.jpg").
   copertina: "",
-  // Foto panoramica in cima alla pagina "I nostri cani": nome del file nella cartella foto/ (es. "panoramica.jpg").
+  // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
   bannerCani: "",
   // Pagina Facebook.
   facebook: "https://www.facebook.com/iltoccodellarosa/"

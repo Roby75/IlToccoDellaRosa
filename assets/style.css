@@ -91,8 +91,7 @@ main{display:block}
 
 .petalo{border-radius:var(--petalo);overflow:hidden;background:var(--surface-2);aspect-ratio:4/5;max-width:100%;position:relative}
 .petalo img{width:100%;height:100%;object-fit:cover}
-.banner-cani{border-radius:1.25rem;overflow:hidden;aspect-ratio:3/1;margin-bottom:2rem;border:1px solid var(--line);background:var(--surface)}
-@media (max-width:40rem){.banner-cani{aspect-ratio:16/9}}
+.banner-cani{overflow:hidden;height:clamp(9rem,26vw,20rem);border-bottom:1px solid var(--line);background:var(--surface)}
 .banner-cani img{width:100%;height:100%;object-fit:cover;display:block}
 .banner-cani .foto-vuota{height:100%}
 .foto-vuota{display:grid;place-items:center;text-align:center;padding:1.5rem;color:var(--muted);font-size:.9rem;
