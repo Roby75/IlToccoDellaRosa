@@ -135,7 +135,7 @@
     return '<article class="cane">' + foto(c.foto, c.nome) +
       '<div class="corpo"><div class="etichette"><span class="etichetta ' + (c.sesso === "F" ? "f" : "m") + '">' + sesso + "</span>" +
       (pelo ? '<span class="etichetta">' + pelo + "</span>" : "") + stato + "</div>" +
-      "<h3>" + esc(c.nome || "Cucciolo") + "</h3><dl>" + righe + "</dl>" +
+      "<h3>" + esc(c.pedigree || c.nome || "Cucciolo") + "</h3>" + (c.pedigree ? '<p class="detto">' + (c.sesso === "F" ? "detta " : "detto ") + esc(c.nome) + "</p>" : "") + "<dl>" + righe + "</dl>" +
       (c.nota ? '<p class="nota">' + esc(c.nota) + "</p>" : "") +
       (cucciolo && c.stato === "Disponibile" ? '<a class="btn wa" data-wa href="' + (waLink("Ciao, vorrei informazioni sul cucciolo " + (c.nome || "") + " (" + c.madre + " × " + c.padre + ")") || "contatti.html") + '" target="_blank" rel="noopener">Chiedi informazioni</a>' : "") +
       "</div></article>";
