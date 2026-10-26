@@ -34,7 +34,8 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--rosa);opacity:.07;-webkit-mask:url(img/sfondo.svg) repeat 0 0/520px;mask:url(img/sfondo.svg) repeat 0 0/520px}
+body{margin:0;background:var(--bg);isolation:isolate;color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
 img{max-width:100%;display:block}
 [hidden]{display:none!important}
 a{color:var(--rosa);text-underline-offset:.2em}
