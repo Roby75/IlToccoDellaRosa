@@ -36,6 +36,11 @@
   document.querySelectorAll("[data-zona]").forEach(function (el) {
     el.innerHTML = S.zona ? esc(S.zona) : segnaposto("Zona da inserire");
   });
+  document.querySelectorAll("[data-banner-cani]").forEach(function (el) {
+    el.innerHTML = S.bannerCani
+      ? '<img src="foto/' + esc(S.bannerCani) + '" alt="I chihuahua dell\'allevamento Il Tocco della Rosa">'
+      : '<div class="foto-vuota"><div>' + ICONA_ROSA + "Foto panoramica dei nostri cani in arrivo</div></div>";
+  });
   document.querySelectorAll("[data-copertina]").forEach(function (el) {
     if (S.copertina) el.innerHTML = '<div class="petalo"><img src="foto/' + esc(S.copertina) + '" alt="Chihuahua dell\'allevamento Il Tocco della Rosa"></div>';
   });
