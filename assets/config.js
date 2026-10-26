@@ -9,7 +9,7 @@ window.SITO = {
   // Come vuoi che il numero appaia scritto sul sito (es. "+39 333 123 4567").
   whatsappVisibile: "+39 351 712 8012",
   // Email dell'allevamento.
-  email: "roberto.betori@roby75.it",
+  email: "info@iltoccodellarosa.it",
   // Zona / città dell'allevamento (es. "Provincia di Roma").
   zona: "Isola della Scala (Verona)",
   // Chiave Web3Forms per ricevere i messaggi del modulo contatti via email.
