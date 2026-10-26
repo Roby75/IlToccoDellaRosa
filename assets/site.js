@@ -36,6 +36,13 @@
   document.querySelectorAll("[data-zona]").forEach(function (el) {
     el.innerHTML = S.zona ? esc(S.zona) : segnaposto("Zona da inserire");
   });
+  document.querySelectorAll("[data-instagram]").forEach(function (el) {
+    if (!S.instagram) return;
+    var a = el.querySelector("a");
+    a.href = "https://www.instagram.com/" + encodeURIComponent(S.instagram) + "/";
+    a.textContent = "@" + S.instagram;
+    el.hidden = false;
+  });
   document.querySelectorAll("[data-banner-cani]").forEach(function (el) {
     el.innerHTML = S.bannerCani
       ? '<img src="foto/' + esc(S.bannerCani) + '" alt="I chihuahua dell\'allevamento Il Tocco della Rosa">'

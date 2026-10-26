@@ -20,5 +20,7 @@ window.SITO = {
   // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
   bannerCani: "",
   // Pagina Facebook.
+  // Instagram: nome utente senza @ (es. "iltoccodellarosa"). Lascia "" per non mostrarlo.
+  instagram: "",
   facebook: "https://www.facebook.com/iltoccodellarosa/"
 };

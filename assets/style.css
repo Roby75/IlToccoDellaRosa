@@ -173,6 +173,10 @@ main{display:block}
 .contatti > *{min-width:0}
 @media (max-width:52rem){.contatti{grid-template-columns:1fr}}
 .recapiti{display:grid;gap:1.2rem}
+.recapito{display:grid;grid-template-columns:2.6rem 1fr;column-gap:.8rem;align-items:center}
+.recapito>:not(.icona-recapito){grid-column:2}
+.icona-recapito{grid-row:1/span 2;width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--rosa) 14%,transparent);color:var(--rosa)}
+.icona-recapito svg{width:1.3rem;height:1.3rem}
 .recapito{display:grid;gap:.15rem}
 .recapito .eyebrow{color:var(--muted)}
 .recapito strong{font-size:1.25rem;overflow-wrap:anywhere}
