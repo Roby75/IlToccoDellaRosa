@@ -41,8 +41,10 @@ window.CUCCIOLI = [];
    Le sezioni ancora senza contenuti mostrano "Foto in arrivo". */
 window.COPERTINE_GALLERIA = {
   "Vita in allevamento": "banner/cane-7.jpg",
+  "Esposizioni e ricordi": "galleria/esposizione-royal-canin.jpg",
 };
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
   { tiktok: "7700182101085343009", sezione: "Vita in allevamento", testo: "Vita in allevamento" },
+  { file: "galleria/esposizione-royal-canin.jpg", sezione: "Esposizioni e ricordi", testo: "In esposizione" },
 ];
