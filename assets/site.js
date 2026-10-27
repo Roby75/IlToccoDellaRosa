@@ -164,8 +164,16 @@
   function bannerAnimato(el, F) {
     var src = function (f) { return "foto/banner/" + esc(f); };
     var bg = F.map(function (f, i) { return '<div class="bn-bg' + (i === 0 ? " on" : "") + '" style="background-image:url(' + src(f) + ')"></div>'; }).join("");
+    // la foto "fissa" (config bannerCentro) resta sempre al centro, le altre scorrono ai lati
+    var fissa = S.bannerCentro && F.indexOf(S.bannerCentro) >= 0 ? S.bannerCentro : null;
+    var giro = fissa ? F.filter(function (f) { return f !== fissa; }) : F;
+    var fotoCarta = function (k, i) {
+      if (fissa && k === 3) return fissa;
+      var pos = fissa && k > 3 ? k - 1 : k;
+      return giro[(i + pos) % giro.length];
+    };
     var carte = [0, 1, 2, 3, 4, 5, 6].map(function (k) {
-      return '<figure class="bn-carta bn-c' + k + '"><img src="' + src(F[k % F.length]) + '" alt=""><img src="' + src(F[k % F.length]) + '" alt="" class="bn-next"></figure>';
+      return '<figure class="bn-carta bn-c' + k + '"><img src="' + src(fotoCarta(k, 0)) + '" alt=""><img src="' + src(fotoCarta(k, 0)) + '" alt="" class="bn-next"></figure>';
     }).join("");
     var petali = "";
     for (var p = 0; p < 14; p++) petali += '<i style="left:' + Math.round(Math.random() * 100) + "%;animation-delay:" + (Math.random() * 9).toFixed(1) + "s;animation-duration:" + (7 + Math.random() * 6).toFixed(1) + 's"></i>';
@@ -179,9 +187,10 @@
       i = (i + 1) % F.length;
       sfondi.forEach(function (b, j) { b.classList.toggle("on", j === i); });
       cards.forEach(function (c, k) {
+        if (fissa && k === 3) return;
         setTimeout(function () {
           var a = c.querySelector("img:not(.bn-next)"), n = c.querySelector(".bn-next");
-          n.src = src(F[(i + k) % F.length]);
+          n.src = src(fotoCarta(k, i));
           c.classList.add("cambia");
           setTimeout(function () { a.src = n.src; c.classList.remove("cambia"); }, 1200);
         }, k * 250);

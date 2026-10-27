@@ -20,6 +20,7 @@ window.SITO = {
   // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
   bannerCani: "",
   // Banner animato sopra il menu: foto nella cartella foto/banner/ (almeno 3). Se la lista è vuota si usa bannerCani.
+  bannerCentro: "cane-3.jpg", // foto sempre al centro del banner (Rosa che bacia il cane nero)
   bannerFoto: ["cane-1.jpg", "cane-5.jpg", "cane-6.jpg", "cane-4.jpg", "cane-7.jpg", "cane-2.jpg", "cane-3.jpg"],
   // Pagina Facebook.
   // Instagram: nome utente senza @ (es. "iltoccodellarosa"). Lascia "" per non mostrarlo.
