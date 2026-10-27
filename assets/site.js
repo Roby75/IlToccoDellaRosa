@@ -251,9 +251,11 @@
         var nv = dentro.filter(function (f) { return f.tiktok; }).length, nf = dentro.length - nv;
         var conta = [nv ? nv + (nv > 1 ? " video" : " video") : "", nf ? nf + (nf > 1 ? " foto" : " foto") : ""].filter(Boolean).join(" · ");
         var prima = dentro.filter(function (f) { return f.file; })[0];
-        var fondo = prima ? '<img src="foto/' + esc(prima.file) + '" alt="" loading="lazy">' : "";
-        html += '<figure class="cartella"><a href="galleria.html?sezione=' + encodeURIComponent(t) + '"><div class="petalo copertina-sez">' + fondo +
-          '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="conta">' + conta + "</span></div></a><figcaption>" + t + "</figcaption></figure>";
+        var cop = (window.COPERTINE_GALLERIA || {})[t] || (prima && prima.file);
+        var fondo = cop ? '<img src="foto/' + esc(cop) + '" alt="" loading="lazy">' : '<span class="disegno">' + ICONA_ROSA + "</span>";
+        html += '<figure class="cartella"><a href="galleria.html?sezione=' + encodeURIComponent(t) + '"><div class="album"><span class="foglio f1"></span><span class="foglio f2"></span><div class="copertina-sez">' + fondo +
+          (nv ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' : "") +
+          '<span class="titolo-sez">' + t + '</span><span class="conta">Apri la galleria · ' + conta + "</span></div></div></a></figure>";
       });
     }
     gal.innerHTML = html;

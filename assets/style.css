@@ -288,9 +288,15 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 .galleria .video-tt iframe{display:block;width:100%;height:100%;border:0}
 .galleria{align-items:start}
 .galleria .cartella a{display:block;text-decoration:none;color:inherit}
-.copertina-sez{position:relative;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#8c2a4b,#e47fa0);transition:transform .3s ease}
-.copertina-sez img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
-.cartella a:hover .copertina-sez{transform:scale(1.02)}
-.copertina-sez .play{position:relative;width:4rem;height:4rem;border-radius:50%;background:rgba(255,255,255,.92);color:#8c2a4b;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.copertina-sez .play svg{width:1.8rem;height:1.8rem;margin-left:.2rem}
-.copertina-sez .conta{position:absolute;bottom:.8rem;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);color:#fff;font-size:.85rem;padding:.2rem .7rem;border-radius:1rem;white-space:nowrap}
+.album{position:relative;padding:.6rem .6rem 0 0}
+.album .foglio{position:absolute;inset:.6rem .6rem 0 0;border-radius:1rem;background:#f6c9d6;box-shadow:0 6px 18px -8px rgba(140,42,75,.5)}
+.album .f1{transform:rotate(5deg)}.album .f2{transform:rotate(-3deg);background:#fbe3ea}
+.copertina-sez{position:relative;aspect-ratio:1;border-radius:1rem;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#f8d3de,#e98aa8);box-shadow:0 14px 30px -14px rgba(140,42,75,.6);transition:transform .35s ease}
+.copertina-sez img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.copertina-sez::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(228,127,160,.15) 30%,rgba(140,42,75,.85))}
+.copertina-sez .disegno svg{width:5rem;height:5rem;color:#fff}
+.cartella a:hover .copertina-sez{transform:translateY(-4px) rotate(-1deg)}
+.copertina-sez .play{position:absolute;z-index:1;top:.8rem;right:.8rem;width:2.6rem;height:2.6rem;border-radius:50%;background:rgba(255,255,255,.92);color:#8c2a4b;display:grid;place-items:center}
+.copertina-sez .play svg{width:1.2rem;height:1.2rem;margin-left:.15rem}
+.copertina-sez .titolo-sez{position:absolute;z-index:1;left:1rem;right:1rem;bottom:2.9rem;color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.7rem;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.copertina-sez .conta{position:absolute;z-index:1;left:1rem;bottom:1rem;background:#fff;color:#8c2a4b;font-size:.85rem;font-weight:600;padding:.25rem .8rem;border-radius:1rem;white-space:nowrap}
