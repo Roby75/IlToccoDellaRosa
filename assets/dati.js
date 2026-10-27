@@ -36,7 +36,10 @@ window.CANI = [
 window.CUCCIOLI = [];
 
 /* GALLERIA
-   Per ogni foto: file (nella cartella foto/) e una breve didascalia. */
+   Per ogni foto: file (nella cartella foto/) e una breve didascalia.
+   Per un video TikTok: tiktok (numero del video) e sezione (es. "Vita in allevamento").
+   Le sezioni ancora senza contenuti mostrano "Foto in arrivo". */
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
+  { tiktok: "7700182101085343009", sezione: "Vita in allevamento", testo: "Vita in allevamento" },
 ];

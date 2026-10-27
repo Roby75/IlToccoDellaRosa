@@ -226,12 +226,20 @@
   var gal = document.getElementById("galleria");
   if (gal) {
     var foto_ = window.GALLERIA || [];
-    if (foto_.length) {
-      gal.innerHTML = foto_.map(function (f, i) {
-        return '<figure><button type="button" data-i="' + i + '" aria-label="Ingrandisci: ' + esc(f.testo) + '"><div class="petalo"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '" loading="lazy"></div></button>' +
+    var sezioni = ["Le nostre fattrici", "Gli stalloni", "Cuccioli in crescita", "Vita in allevamento", "Le famiglie dei nostri cuccioli", "Esposizioni e ricordi"];
+    var voce = function (f, i) {
+      if (f.tiktok) return '<figure class="video"><div class="video-tt"><iframe src="https://www.tiktok.com/player/v1/' + esc(f.tiktok) + '?rel=0" title="' + esc(f.testo || "Video TikTok") + '" allow="fullscreen; encrypted-media; picture-in-picture" loading="lazy"></iframe></div>' +
+        (f.testo ? "<figcaption>" + esc(f.testo) + "</figcaption>" : "") + "</figure>";
+      return '<figure><button type="button" data-i="' + i + '" aria-label="Ingrandisci: ' + esc(f.testo) + '"><div class="petalo"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '" loading="lazy"></div></button>' +
           (f.testo ? "<figcaption>" + esc(f.testo) + "</figcaption>" : "") + "</figure>";
-      }).join("");
-      gal.addEventListener("click", function (e) {
+    };
+    var html = foto_.map(function (f, i) { return f.sezione ? "" : voce(f, i); }).join("");
+    sezioni.forEach(function (t) {
+      var dentro = foto_.map(function (f, i) { return f.sezione === t ? voce(f, i) : ""; }).join("");
+      html += dentro || '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div><figcaption>" + t + "</figcaption></figure>";
+    });
+    gal.innerHTML = html;
+    gal.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]"); if (!b) return;
         var f = foto_[+b.getAttribute("data-i")];
         var box = document.createElement("div");
@@ -243,13 +251,6 @@
         document.addEventListener("keydown", tasto);
         document.body.appendChild(box); box.querySelector("button").focus();
       });
-    } else {
-      var segn = "";
-      ["Le nostre fattrici", "Gli stalloni", "Cuccioli in crescita", "Vita in allevamento", "Le famiglie dei nostri cuccioli", "Esposizioni e ricordi"].forEach(function (t) {
-        segn += '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div><figcaption>" + t + "</figcaption></figure>";
-      });
-      gal.innerHTML = segn;
-    }
   }
 
   /* modulo contatti */
