@@ -40,11 +40,13 @@ window.CUCCIOLI = [];
    Per un video TikTok: tiktok (numero del video) e sezione (es. "Vita in allevamento").
    Le sezioni ancora senza contenuti mostrano "Foto in arrivo". */
 window.COPERTINE_GALLERIA = {
-  "Vita in allevamento": "banner/cane-7.jpg",
+  "Vita in allevamento": "galleria/rosa-prato-2.jpg",
   "Esposizioni e ricordi": "galleria/esposizione-royal-canin.jpg",
 };
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
   { tiktok: "7700182101085343009", sezione: "Vita in allevamento", testo: "Vita in allevamento" },
+  { file: "galleria/rosa-prato-2.jpg", sezione: "Vita in allevamento", testo: "In giardino con i cuccioli" },
+  { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
   { file: "galleria/esposizione-royal-canin.jpg", sezione: "Esposizioni e ricordi", testo: "In esposizione" },
 ];
