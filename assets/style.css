@@ -305,3 +305,10 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 /* piè di pagina ridotto: solo affisso/loghi e copyright (le colonne doppiavano menu e contatti) */
 .piede .wrap > div{display:none}
 .piede .riconoscimento{border-top:0;padding-top:0}
+/* piè di pagina compatto: loghi, sotto la scritta piccola, poi copyright */
+footer.piede{padding-block:1.4rem}
+footer.piede .wrap{gap:.6rem}
+.piede .riconoscimento{gap:.4rem 1rem}
+.piede .riconoscimento span{flex-basis:100%;font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+.piede .riconoscimento img{height:2.8rem}
+footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-size:.82rem}
