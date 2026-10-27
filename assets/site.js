@@ -286,4 +286,10 @@
     });
   }
   animaSchede();
+
+  // contatti.html?modulo: mostra solo il modulo, a tutta pagina
+  if (/[?&]modulo\b/.test(location.search) && document.getElementById("modulo-contatti")) {
+    document.body.classList.add("solo-modulo");
+    var h = document.querySelector(".intestazione h1"); if (h) h.textContent = "Lista d'attesa";
+  }
 })();

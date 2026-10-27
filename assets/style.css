@@ -277,3 +277,9 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 .bn-petali i{position:absolute;top:-10%;width:14px;height:10px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#f6b6c8,#e47fa0);opacity:.85;animation:bn-cade linear infinite}
 @keyframes bn-cade{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(60px,var(--h,26rem)) rotate(540deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){.bn-bg,.bn-carta,.bn-petali i{animation:none}.bn-petali{display:none}}
+/* modulo a tutta pagina (contatti.html?modulo) */
+.torna-contatti{display:none}
+.solo-modulo .recapiti,.solo-modulo .intestazione .lead,.solo-modulo .piede{display:none}
+.solo-modulo .contatti{grid-template-columns:minmax(0,46rem);justify-content:center;gap:.8rem}
+.solo-modulo .intestazione{max-width:46rem;margin-inline:auto}
+.solo-modulo .torna-contatti{display:block;margin:0}
