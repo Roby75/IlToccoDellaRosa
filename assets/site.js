@@ -44,6 +44,8 @@
     el.hidden = false;
   });
   document.querySelectorAll("[data-banner-cani]").forEach(function (el) {
+    var F = S.bannerFoto || [];
+    if (F.length >= 3) { bannerAnimato(el, F); return; }
     el.innerHTML = S.bannerCani
       ? '<img src="foto/' + esc(S.bannerCani) + '" alt="I chihuahua dell\'allevamento Il Tocco della Rosa">'
       : '<div class="foto-vuota"><div>' + ICONA_ROSA + "Foto panoramica dei nostri cani in arrivo</div></div>";
@@ -151,6 +153,36 @@
       (c.nota ? '<p class="nota">' + esc(c.nota) + "</p>" : "") +
       (cucciolo && c.stato === "Disponibile" ? '<a class="btn wa" data-wa href="' + (waLink("Ciao, vorrei informazioni sul cucciolo " + (c.nome || "") + " (" + c.madre + " × " + c.padre + ")") || "contatti.html") + '" target="_blank" rel="noopener">Chiedi informazioni</a>' : "") +
       "</div></article>";
+  }
+
+
+  /* banner animato: sfondo sfocato che si dissolve, cartoline che si alternano, petali */
+  function bannerAnimato(el, F) {
+    var src = function (f) { return "foto/banner/" + esc(f); };
+    var bg = F.map(function (f, i) { return '<div class="bn-bg' + (i === 0 ? " on" : "") + '" style="background-image:url(' + src(f) + ')"></div>'; }).join("");
+    var carte = [0, 1, 2].map(function (k) {
+      return '<figure class="bn-carta bn-c' + k + '"><img src="' + src(F[k % F.length]) + '" alt=""><img src="' + src(F[k % F.length]) + '" alt="" class="bn-next"></figure>';
+    }).join("");
+    var petali = "";
+    for (var p = 0; p < 14; p++) petali += '<i style="left:' + Math.round(Math.random() * 100) + "%;animation-delay:" + (Math.random() * 9).toFixed(1) + "s;animation-duration:" + (7 + Math.random() * 6).toFixed(1) + 's"></i>';
+    el.classList.add("bn");
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", "Foto dei Chihuahua dell'allevamento Il Tocco della Rosa");
+    el.innerHTML = bg + '<div class="bn-velo"></div><div class="bn-carte">' + carte + '</div><div class="bn-petali" aria-hidden="true">' + petali + "</div>";
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var i = 0, sfondi = el.querySelectorAll(".bn-bg"), cards = el.querySelectorAll(".bn-carta");
+    setInterval(function () {
+      i = (i + 1) % F.length;
+      sfondi.forEach(function (b, j) { b.classList.toggle("on", j === i); });
+      cards.forEach(function (c, k) {
+        setTimeout(function () {
+          var a = c.querySelector("img:not(.bn-next)"), n = c.querySelector(".bn-next");
+          n.src = src(F[(i + k * 2) % F.length]);
+          c.classList.add("cambia");
+          setTimeout(function () { a.src = n.src; c.classList.remove("cambia"); }, 1200);
+        }, k * 450);
+      });
+    }, 5200);
   }
 
   /* pagina I nostri cani */
