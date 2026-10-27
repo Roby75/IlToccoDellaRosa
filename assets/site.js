@@ -160,8 +160,8 @@
   function bannerAnimato(el, F) {
     var src = function (f) { return "foto/banner/" + esc(f); };
     var bg = F.map(function (f, i) { return '<div class="bn-bg' + (i === 0 ? " on" : "") + '" style="background-image:url(' + src(f) + ')"></div>'; }).join("");
-    var carte = [0, 1, 2].map(function (k) {
-      return '<figure class="bn-carta bn-c' + k + '"><img src="' + src(F[k % F.length]) + '" alt=""><img src="' + src(F[k % F.length]) + '" alt="" class="bn-next"></figure>';
+    var carte = [0, 1, 2, 3].map(function (k) {
+      return '<figure class="bn-carta bn-c' + k + '"><img src="' + src(F[(k * 2) % F.length]) + '" alt=""><img src="' + src(F[(k * 2) % F.length]) + '" alt="" class="bn-next"></figure>';
     }).join("");
     var petali = "";
     for (var p = 0; p < 14; p++) petali += '<i style="left:' + Math.round(Math.random() * 100) + "%;animation-delay:" + (Math.random() * 9).toFixed(1) + "s;animation-duration:" + (7 + Math.random() * 6).toFixed(1) + 's"></i>';

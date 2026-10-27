@@ -265,14 +265,14 @@ footer.piede .fine{grid-column:1/-1;color:var(--muted);border-top:1px solid var(
 .bn-bg.on{opacity:.9}
 @keyframes bn-ken{from{transform:scale(1.1) translateX(-2%)}to{transform:scale(1.25) translateX(2%)}}
 .bn-velo{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(140,42,75,.55),transparent 60%),linear-gradient(90deg,rgba(40,18,26,.55),rgba(40,18,26,.05) 30%,rgba(40,18,26,.05) 70%,rgba(40,18,26,.55))}
-.bn-carte{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:clamp(1rem,4vw,3.5rem);padding:0 1rem}
+.bn-carte{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:0;padding:0 1rem}
 .bn-carta{position:relative;margin:0;height:78%;aspect-ratio:4/5;-webkit-mask:radial-gradient(closest-side,#000 82%,transparent 100%);mask:radial-gradient(closest-side,#000 82%,transparent 100%);animation:bn-galleggia 7s ease-in-out infinite}
 .bn-carta img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity 1.2s ease}
 .bn-carta .bn-next{position:absolute;inset:0;opacity:0}
 .bn-carta.cambia .bn-next{opacity:1}
-.bn-c0{--r:-6deg;animation-delay:-1s}.bn-c1{--r:2deg;height:92%;z-index:1;animation-delay:-3s}.bn-c2{--r:7deg;animation-delay:-5s}
+.bn-carta+.bn-carta{margin-left:clamp(-2.5rem,-3vw,-1rem)}.bn-c0{--r:-6deg;animation-delay:-1s}.bn-c1{--r:-2deg;height:90%;z-index:1;animation-delay:-3s}.bn-c2{--r:3deg;height:90%;z-index:1;animation-delay:-5s}.bn-c3{--r:7deg;animation-delay:-2s}
 @keyframes bn-galleggia{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(calc(var(--r) * -.4)) translateY(-8px)}}
-@media (max-width:40rem){.bn-c0,.bn-c2{height:62%}.bn-carte{gap:.4rem}}
+@media (max-width:40rem){.bn-c0,.bn-c3{height:58%}.bn-c1,.bn-c2{height:70%}}
 .bn-petali{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .bn-petali i{position:absolute;top:-10%;width:14px;height:10px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#f6b6c8,#e47fa0);opacity:.85;animation:bn-cade linear infinite}
 @keyframes bn-cade{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(60px,var(--h,26rem)) rotate(540deg);opacity:0}}
