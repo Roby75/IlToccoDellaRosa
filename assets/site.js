@@ -114,6 +114,10 @@
   }
 
 
+  /* cambiando pagina si riparte sempre dall'alto (salvo link a un punto preciso con #) */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (!location.hash) { window.scrollTo(0, 0); window.addEventListener("load", function () { window.scrollTo(0, 0); }); }
+
   /* dissolvenza in uscita quando si va su un'altra pagina del sito */
   if (movimento) {
     document.addEventListener("click", function (e) {
