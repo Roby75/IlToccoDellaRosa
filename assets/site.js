@@ -233,11 +233,29 @@
       return '<figure><button type="button" data-i="' + i + '" aria-label="Ingrandisci: ' + esc(f.testo) + '"><div class="petalo"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '" loading="lazy"></div></button>' +
           (f.testo ? "<figcaption>" + esc(f.testo) + "</figcaption>" : "") + "</figure>";
     };
-    var html = foto_.map(function (f, i) { return f.sezione ? "" : voce(f, i); }).join("");
-    sezioni.forEach(function (t) {
-      var dentro = foto_.map(function (f, i) { return f.sezione === t ? voce(f, i) : ""; }).join("");
-      html += dentro || '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div><figcaption>" + t + "</figcaption></figure>";
-    });
+    var qs = new URLSearchParams(location.search).get("sezione"), html = "";
+    if (qs && sezioni.indexOf(qs) >= 0) {
+      // pagina di una sezione: tutti i video e le foto di quell'argomento
+      var h1 = document.querySelector(".intestazione h1"), ld = document.querySelector(".intestazione .lead");
+      if (h1) h1.textContent = qs;
+      if (ld) ld.innerHTML = '<a href="galleria.html">← Tutta la galleria</a>';
+      document.title = qs + " · Il Tocco della Rosa";
+      html = foto_.map(function (f, i) { return f.sezione === qs ? voce(f, i) : ""; }).join("") ||
+        '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+    } else {
+      // galleria: foto senza sezione, poi una casella per ogni sezione
+      html = foto_.map(function (f, i) { return f.sezione ? "" : voce(f, i); }).join("");
+      sezioni.forEach(function (t) {
+        var dentro = foto_.filter(function (f) { return f.sezione === t; });
+        if (!dentro.length) { html += '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div><figcaption>" + t + "</figcaption></figure>"; return; }
+        var nv = dentro.filter(function (f) { return f.tiktok; }).length, nf = dentro.length - nv;
+        var conta = [nv ? nv + (nv > 1 ? " video" : " video") : "", nf ? nf + (nf > 1 ? " foto" : " foto") : ""].filter(Boolean).join(" · ");
+        var prima = dentro.filter(function (f) { return f.file; })[0];
+        var fondo = prima ? '<img src="foto/' + esc(prima.file) + '" alt="" loading="lazy">' : "";
+        html += '<figure class="cartella"><a href="galleria.html?sezione=' + encodeURIComponent(t) + '"><div class="petalo copertina-sez">' + fondo +
+          '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="conta">' + conta + "</span></div></a><figcaption>" + t + "</figcaption></figure>";
+      });
+    }
     gal.innerHTML = html;
     gal.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]"); if (!b) return;
