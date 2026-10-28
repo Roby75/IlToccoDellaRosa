@@ -51,7 +51,7 @@
       : '<div class="foto-vuota"><div>' + ICONA_ROSA + "Foto panoramica dei nostri cani in arrivo</div></div>";
   });
   document.querySelectorAll("[data-copertina]").forEach(function (el) {
-    if (S.copertina) el.innerHTML = '<div class="petalo"><img src="foto/' + esc(S.copertina) + '" alt="Chihuahua dell\'allevamento Il Tocco della Rosa"></div>';
+    if (S.copertina) el.innerHTML = '<div class="petalo"><img src="foto/' + esc(S.copertina) + '" alt="July, la nostra prima Chihuahua"></div><p class="didascalia">July, la nostra prima Chihuahua, che ci ha insegnato tutto.</p>';
   });
   document.querySelectorAll("[data-anno]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
