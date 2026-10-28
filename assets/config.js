@@ -16,7 +16,7 @@ window.SITO = {
   // Si ottiene gratis su https://web3forms.com inserendo l'email dell'allevamento.
   web3formsKey: "00769613-7ac1-44c6-b041-0d73744eadc9",
   // Foto di copertina della home: nome del file nella cartella foto/ (es. "copertina.jpg").
-  copertina: "",
+  copertina: "banner/cane-7.jpg",
   // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
   bannerCani: "",
   // Banner animato sopra il menu: foto nella cartella foto/banner/ (almeno 3). Se la lista è vuota si usa bannerCani.
