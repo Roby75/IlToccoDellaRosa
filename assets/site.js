@@ -291,7 +291,7 @@
   var form = document.getElementById("modulo-contatti");
   if (form) {
     var esito = document.getElementById("esito");
-    var mostra = function (tipo, testo) { esito.className = "esito " + tipo; esito.textContent = testo; esito.hidden = false; esito.setAttribute("tabindex", "-1"); try { esito.scrollIntoView({ behavior: "smooth", block: "center" }); esito.focus({ preventScroll: true }); } catch (x) { esito.scrollIntoView(); } };
+    var mostra = function (tipo, testo) { esito.className = "esito " + tipo; esito.textContent = testo; esito.hidden = false; esito.setAttribute("tabindex", "-1"); setTimeout(function () { try { esito.scrollIntoView({ behavior: "smooth", block: "center" }); esito.focus({ preventScroll: true }); } catch (x) { esito.scrollIntoView(); } }, 80); };
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;

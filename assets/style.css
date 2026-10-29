@@ -201,6 +201,7 @@ fieldset{border:0;margin:0;padding:0;display:grid;gap:.35rem}
 .esito.ok::before{content:"\2713";display:block;font-size:2rem;line-height:1;margin-bottom:.4rem;color:var(--foglia)}
 .esito.errore{background:var(--rosa-soft);color:var(--ink);border:2px solid var(--rosa);padding:1.1rem 1.2rem;font-size:1.1rem;text-align:center;margin-top:1rem}
 .esito:focus{outline:none}
+.esito{scroll-margin:7rem 0 3rem}
 .nascosto{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* testo lungo (privacy) */
