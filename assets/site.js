@@ -150,7 +150,7 @@
     if (c.test && c.test.length) righe += "<dt>Test sanitari</dt><dd>" + c.test.map(function (t) { return esc(t.nome) + ": <strong>" + esc(t.esito) + "</strong>"; }).join("<br>") + "</dd>";
     if (c.dna) righe += "<dt>DNA</dt><dd>Depositato ENCI</dd>";
     var stato = c.stato ? '<span class="etichetta ' + (c.stato === "Disponibile" ? "m" : "") + '">' + esc(c.stato) + "</span>" : "";
-    return '<article class="cane">' + foto(c.foto, c.nome) +
+    return '<article class="cane">' + foto(c.foto, c.nome) + (c.credito ? '<p class="credito">' + esc(c.credito) + "</p>" : "") +
       '<div class="corpo"><div class="etichette"><span class="etichetta ' + (c.sesso === "F" ? "f" : "m") + '">' + sesso + "</span>" +
       (pelo ? '<span class="etichetta">' + pelo + "</span>" : "") + stato + "</div>" +
       "<h3>" + esc(c.pedigree || c.nome || "Cucciolo") + "</h3>" + (c.pedigree ? '<p class="detto">' + (c.sesso === "F" ? "detta " : "detto ") + esc(c.nome) + "</p>" : "") + "<dl>" + righe + "</dl>" +

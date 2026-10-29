@@ -314,3 +314,4 @@ footer.piede .wrap{gap:.6rem}
 footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-size:.82rem}
 
 .didascalia{text-align:center;font-style:italic;font-size:.9rem;opacity:.8;margin-top:.6rem}
+.cane .credito{font-size:.75rem;font-style:italic;color:var(--muted);text-align:center;margin:.35rem .8rem 0}
