@@ -71,7 +71,7 @@ nav.principale ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap
 nav.principale a{display:block;padding:.45rem .7rem;border-radius:2rem;text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
 nav.principale a:hover{background:var(--surface-2)}
 nav.principale a[aria-current="page"]{background:var(--rosa);color:var(--on-accent)}
-@media (max-width:62rem){
+@media (max-width:68rem){
   .menu-btn{display:block}
   nav.principale{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem max(16px,env(safe-area-inset-right,0px)) 1rem max(16px,env(safe-area-inset-left,0px))}
   nav.principale.aperto{display:block}
@@ -316,7 +316,8 @@ footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-si
 .didascalia{text-align:center;font-style:italic;font-size:.9rem;opacity:.8;margin-top:.6rem}
 .cane .credito{font-size:.75rem;font-style:italic;color:var(--muted);text-align:center;margin:.35rem .8rem 0}
 [data-copertina] .petalo{aspect-ratio:.92}
-.top .affiliazioni{display:flex;align-items:center;gap:.4rem;margin-right:auto;flex:none}
-.top .affiliazioni img{height:1.6rem;width:auto;opacity:.9}
-@media (max-width:70rem) and (min-width:62.01rem){.top .wrap{gap:.5rem}.top .affiliazioni{gap:.25rem}.top .affiliazioni img{height:1.2rem}nav.principale a{padding:.45rem .5rem;font-size:.9rem}}
-@media (max-width:40rem){.top .affiliazioni{gap:.4rem}.top .affiliazioni img{height:1.5rem}}
+.top .affiliazioni{display:flex;align-items:center;gap:.4rem;flex:none}
+.top .affiliazioni + .marchio{margin-right:auto}
+.top .affiliazioni img{height:2.1rem;width:auto;background:#fff;border-radius:.4rem;padding:.12rem;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+@media (min-width:68.01rem){.top .wrap{gap:.6rem}.top .affiliazioni{gap:.25rem}nav.principale a{padding:.45rem .5rem;font-size:.9rem}}
+@media (max-width:40rem){.top .affiliazioni{gap:.25rem}.top .affiliazioni img{height:1.7rem}.top .wrap{gap:.5rem}}
