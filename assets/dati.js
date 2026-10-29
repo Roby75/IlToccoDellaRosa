@@ -12,7 +12,7 @@
    dna: true se il DNA è depositato in ENCI (togli il campo se no) */
 window.CANI = [
   // Fattrici
-  { nome: "Bia", pedigree: "Il Tocco della Rosa Bia la Sfida della Magia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Avada Kedavra Uma Thurman",    padre: "Il Tocco della Rosa Gino",    origine: "Nata da noi", foto: "" },
+  { nome: "Bia", pedigree: "Il Tocco della Rosa Bia la Sfida della Magia",     sesso: "F", nascita: "2025", pelo: "PL", colore: "Fulva chiara",  madre: "Avada Kedavra Uma Thurman",    padre: "Il Tocco della Rosa Gino",    origine: "Nata da noi", foto: "cani/bia.jpg" },
   { nome: "Klara", pedigree: "Il Tocco della Rosa Klara",   sesso: "F", nascita: "2024", pelo: "PL", colore: "Crema",         madre: "Avada Kedavra Magic Moment", padre: "Amazing Dream Pride of Legolas", origine: "Nata da noi", foto: "", dna: true, test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Leda", pedigree: "Maison Magic Diamond Rosina",    sesso: "F", nascita: "2025", pelo: "PL", colore: "Crema",         madre: "Magic Diamond Lady", padre: "Inventor Dragon", origine: "Allevamento italiano", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/0" }] },
   { nome: "Lia", pedigree: "Love Story Dogydotchi",     sesso: "F", nascita: "2023", pelo: "PL", colore: "Nero tricolor", madre: "Breakfast at Tiffany's Dogydotchi", padre: "Benrich's Inspire to Love", origine: "Dogydotchi", foto: "", test: [{ nome: "Lussazione rotulea", esito: "0/1" }] },
