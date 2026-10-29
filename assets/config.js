@@ -3,7 +3,7 @@
    ========================================================= */
 window.SITO = {
   // MANUTENZIONE: metti true per mostrare a tutti solo la pagina "Sito in manutenzione", false per riaprire il sito.
-  manutenzione: true,
+  manutenzione: false,
   // Numero WhatsApp Business con prefisso internazionale, solo cifre (es. "393331234567").
   whatsapp: "393517128012",
   // Come vuoi che il numero appaia scritto sul sito (es. "+39 333 123 4567").
