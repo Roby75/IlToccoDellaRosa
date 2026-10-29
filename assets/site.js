@@ -326,4 +326,19 @@
     document.body.classList.add("solo-modulo");
     var h = document.querySelector(".intestazione h1"); if (h) h.textContent = "Lista d'attesa";
   }
+
+  // riquadro foto a rotazione automatica (pagina Genetica)
+  document.querySelectorAll("[data-rotazione]").forEach(function (box) {
+    var figure = box.querySelectorAll("figure"), punti = box.querySelectorAll(".punti-rot button"), corrente = 0, timer = null;
+    function mostra(n) {
+      corrente = (n + figure.length) % figure.length;
+      figure.forEach(function (f, i) { f.classList.toggle("attiva", i === corrente); });
+      punti.forEach(function (p, i) { p.classList.toggle("attivo", i === corrente); });
+    }
+    function avvia() { if (!timer && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(function () { mostra(corrente + 1); }, 5000); }
+    function ferma() { clearInterval(timer); timer = null; }
+    punti.forEach(function (p, i) { p.addEventListener("click", function () { mostra(i); }); });
+    box.addEventListener("mouseenter", ferma); box.addEventListener("mouseleave", avvia);
+    avvia();
+  });
 })();
