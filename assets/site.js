@@ -240,7 +240,7 @@
   var gal = document.getElementById("galleria");
   if (gal) {
     var foto_ = window.GALLERIA || [];
-    var sezioni = ["Nati da noi", "Vita in allevamento", "Le famiglie dei nostri cuccioli", "Esposizioni e ricordi"];
+    var sezioni = ["Nati da noi", "Vita in allevamento", "Le famiglie dei nostri cuccioli", "Esposizioni"];
     var voce = function (f, i) {
       if (f.tiktok) return '<figure class="video"><div class="video-tt"><iframe src="https://www.tiktok.com/player/v1/' + esc(f.tiktok) + '?rel=0" title="' + esc(f.testo || "Video TikTok") + '" allow="fullscreen; encrypted-media; picture-in-picture" loading="lazy"></iframe></div>' +
         (f.testo ? "<figcaption>" + esc(f.testo) + "</figcaption>" : "") + "</figure>";
