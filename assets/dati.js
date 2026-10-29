@@ -46,6 +46,7 @@ window.COPERTINE_GALLERIA = {
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
   { file: "galleria/nati-da-noi-1.jpg", sezione: "Nati da noi", testo: "Un cucciolo nato da noi" },
+  { file: "galleria/famiglie-1.jpg", sezione: "Le famiglie dei nostri cuccioli", testo: "Una famiglia con il suo cucciolo" },
   { tiktok: "7700182101085343009", sezione: "Vita in allevamento", testo: "Vita in allevamento" },
   { file: "galleria/rosa-prato-2.jpg", sezione: "Vita in allevamento", testo: "In giardino con i cuccioli" },
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
