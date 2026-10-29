@@ -318,6 +318,6 @@ footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-si
 [data-copertina] .petalo{aspect-ratio:.92}
 .top .affiliazioni{display:flex;align-items:center;gap:.4rem;flex:none}
 .top .affiliazioni + .marchio{margin-right:auto}
-.top .affiliazioni img{height:2.1rem;width:auto;background:#fff;border-radius:.4rem;padding:.12rem;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.top .affiliazioni img{height:2.4rem;width:auto;background:#fff;border-radius:.42rem;padding:.18rem}
 @media (min-width:68.01rem){.top .wrap{gap:.6rem}.top .affiliazioni{gap:.25rem}nav.principale a{padding:.45rem .5rem;font-size:.9rem}}
-@media (max-width:40rem){.top .affiliazioni{gap:.25rem}.top .affiliazioni img{height:1.7rem}.top .wrap{gap:.5rem}}
+@media (max-width:40rem){.top .affiliazioni{gap:.25rem}.top .affiliazioni img{height:2rem}.top .wrap{gap:.5rem}}
