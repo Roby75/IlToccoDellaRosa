@@ -7,23 +7,23 @@
 @font-face{font-family:'Mulish';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/mulish.woff2') format('woff2')}
 
 :root{
-  --bg:#fbf5f4;          /* carta rosata */
-  --surface:#ffffff;
-  --surface-2:#f4e8e7;
-  --ink:#2a1a21;
-  --muted:#6f5c64;
-  --line:#e7d6d7;
-  --rosa:#8c2a4b;        /* rosa antica, colore principale */
-  --rosa-soft:#f2dbe1;
-  --foglia:#5f7f66;      /* verde foglia, secondario */
-  --foglia-soft:#e3ece4;
-  --wa:#1f8f52;
-  --on-accent:#ffffff;
+  --bg:#1b1316;          /* carta rosata */
+  --surface:#251a1e;
+  --surface-2:#2f2227;
+  --ink:#f3e7ea;
+  --muted:#c3adb5;
+  --line:#3d2d33;
+  --rosa:#e88fab;        /* rosa antica, colore principale */
+  --rosa-soft:#40222d;
+  --foglia:#9fbea6;      /* verde foglia, secondario */
+  --foglia-soft:#243229;
+  --wa:#37b26f;
+  --on-accent:#1b1316;
   --display:'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
   --body:'Mulish', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --petalo:2.2rem .5rem 2.2rem .5rem;
   --wrap:68rem;
-  color-scheme:light;
+  color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#1b1316;--surface:#251a1e;--surface-2:#2f2227;--ink:#f3e7ea;--muted:#c3adb5;--line:#3d2d33;
@@ -34,7 +34,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--rosa);opacity:.07;-webkit-mask:url(img/sfondo.svg) repeat 0 0/520px;mask:url(img/sfondo.svg) repeat 0 0/520px}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--rosa);opacity:.035;-webkit-mask:url(img/sfondo.svg) repeat 0 0/520px;mask:url(img/sfondo.svg) repeat 0 0/520px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body::after{opacity:.035}}
 :root[data-theme="dark"] body::after{opacity:.035}
 body{margin:0;background:var(--bg);isolation:isolate;color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
