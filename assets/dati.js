@@ -41,7 +41,7 @@ window.CUCCIOLI = [];
    Le sezioni ancora senza contenuti mostrano "Foto in arrivo". */
 window.COPERTINE_GALLERIA = {
   "Vita in allevamento": "galleria/rosa-prato-2.jpg",
-  "Esposizioni": "galleria/esposizione-royal-canin.jpg",
+  "Esposizioni": "esposizioni/show/copertina-show.jpg",
 };
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
@@ -50,8 +50,8 @@ window.GALLERIA = [
   { tiktok: "7700182101085343009", sezione: "Vita in allevamento", testo: "Vita in allevamento" },
   { file: "galleria/rosa-prato-2.jpg", sezione: "Vita in allevamento", testo: "In giardino con i cuccioli" },
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
-  { file: "galleria/esposizione-royal-canin.jpg", sezione: "Esposizioni", testo: "In esposizione" },
   // Esposizioni: "cane" raggruppa per cane, "evento" raggruppa le foto dello stesso evento (copertina: true = foto di copertina, diploma: true = documento)
+  { file: "esposizioni/show/copertina-show.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show" },
   { file: "esposizioni/show/2022-11-03-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Campione Italiano di Bellezza", data: "3 novembre 2022", copertina: true, diploma: true, testo: "Diploma di Campione Italiano di Bellezza, 3 novembre 2022" },
   { file: "esposizioni/show/2022-04-20-giovane-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione Italiano di Bellezza", data: "20 aprile 2022", diploma: true, testo: "Diploma di Giovane Campione Italiano di Bellezza, 20 aprile 2022" },
   { file: "esposizioni/show/2022-03-20-giovane-campione-sloveno.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione di Slovenia", data: "20 marzo 2022", diploma: true, testo: "Diploma di Giovane Campione di Slovenia, 20 marzo 2022 (Kras e Miren)" },
