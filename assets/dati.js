@@ -53,6 +53,19 @@ window.GALLERIA = [
   // Esposizioni: "cane" raggruppa per cane, "evento" raggruppa le foto dello stesso evento (copertina: true = foto di copertina, diploma: true = documento)
   { file: "esposizioni/show/2022-11-03-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Campione Italiano di Bellezza", data: "3 novembre 2022", diploma: true, testo: "Diploma di Campione Italiano di Bellezza, 3 novembre 2022" },
   { file: "esposizioni/show/2022-04-20-giovane-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione Italiano di Bellezza", data: "20 aprile 2022", diploma: true, testo: "Diploma di Giovane Campione Italiano di Bellezza, 20 aprile 2022" },
+  { file: "esposizioni/show/diploma-slovenia.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Diploma di Giovane Campione di Slovenia, 20 marzo 2022" },
+  { file: "esposizioni/show/diploma-san-marino.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Diploma di Campione Giovane Sammarinese, 2022" },
+  { file: "esposizioni/show/best-in-show.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show primo sul podio" },
+  { file: "esposizioni/show/podio-giudice.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show primo sul podio, con la coccarda" },
+  { file: "esposizioni/show/gruppo-podio.jpg", sezione: "Esposizioni", cane: "Show", testo: "Podio finale con i migliori di razza" },
+  { file: "esposizioni/show/coccarde.jpg", sezione: "Esposizioni", cane: "Show", testo: "Le coccarde vinte in esposizione" },
+  { file: "esposizioni/show/san-marino-podio.jpg", sezione: "Esposizioni", cane: "Show", testo: "Dog Show di San Marino, Show sul podio" },
+  { file: "esposizioni/show/san-marino-boj.jpg", sezione: "Esposizioni", cane: "Show", testo: "San Marino, Show Best of Junior" },
+  { file: "esposizioni/show/san-marino-trofei.jpg", sezione: "Esposizioni", cane: "Show", testo: "San Marino, coppe e coccarda Best of Junior" },
+  { file: "esposizioni/show/wds-2021.jpg", sezione: "Esposizioni", cane: "Show", testo: "World Dog Show 2021" },
+  { file: "esposizioni/show/in-ring-1.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
+  { file: "esposizioni/show/in-ring-2.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
+  { file: "esposizioni/show/in-ring-3.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
   { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
 ];
 
