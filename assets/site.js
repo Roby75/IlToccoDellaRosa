@@ -279,7 +279,7 @@
         var elencoCani = []; qui.forEach(function (x) { if (x.f.cane && elencoCani.indexOf(x.f.cane) < 0) elencoCani.push(x.f.cane); });
         // un solo livello: un blocco per cane con nome da pedigree, titoli e tutte le foto (diplomi compresi) in un'unica griglia
         html = elencoCani.map(function (n) {
-          var mie = qui.filter(function (x) { return x.f.cane === n; });
+          var mie = qui.filter(function (x) { return x.f.cane === n; }).sort(function (a, b) { return (b.f.diploma ? 1 : 0) - (a.f.diploma ? 1 : 0) || a.i - b.i; }); // diplomi sempre per primi
           var ids = mie.map(function (y) { return y.i; }).join(",");
           return '<div class="gruppo-cane"><h2>' + esc(nomeCompleto(n)) + "</h2>" + (tit(n).length ? '<p class="titoli-cane">' + tit(n).map(esc).join(" · ") + "</p>" : "") +
             '<div class="griglia-cane">' + mie.map(function (x) {
