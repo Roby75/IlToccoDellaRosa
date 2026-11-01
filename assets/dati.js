@@ -52,10 +52,6 @@ window.GALLERIA = [
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
   // Esposizioni: "cane" raggruppa per cane, "evento" raggruppa le foto dello stesso evento (copertina: true = foto di copertina, diploma: true = documento)
   { file: "esposizioni/show/copertina-show.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show" },
-  { file: "esposizioni/show/2022-11-03-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Campione Italiano di Bellezza", data: "3 novembre 2022", copertina: true, diploma: true, testo: "Diploma di Campione Italiano di Bellezza, 3 novembre 2022" },
-  { file: "esposizioni/show/2022-04-20-giovane-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione Italiano di Bellezza", data: "20 aprile 2022", diploma: true, testo: "Diploma di Giovane Campione Italiano di Bellezza, 20 aprile 2022" },
-  { file: "esposizioni/show/2022-03-20-giovane-campione-sloveno.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione di Slovenia", data: "20 marzo 2022", diploma: true, testo: "Diploma di Giovane Campione di Slovenia, 20 marzo 2022 (Kras e Miren)" },
-  { file: "esposizioni/show/2021-12-14-giovane-campione-austriaco.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione d'Austria", data: "14 dicembre 2021", diploma: true, testo: "Diploma di Giovane Campione d'Austria, 14 dicembre 2021 (Tulln an der Donau)" },
 ];
 
 /* Cani esposti con noi che non sono in allevamento: nome (come nel campo "cane" della galleria) e titoli da mostrare */
