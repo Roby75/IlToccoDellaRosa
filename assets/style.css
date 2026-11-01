@@ -343,3 +343,4 @@ footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-si
 .galleria figcaption small{opacity:.75}
 .lightbox .sfoglia{display:flex;gap:.8rem;justify-content:center;margin-top:.8rem}
 .lightbox .sfoglia button{position:static}
+.copertina-sez img.intera{object-fit:contain;background:#1b1316}

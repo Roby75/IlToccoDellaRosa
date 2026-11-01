@@ -41,7 +41,7 @@ window.CUCCIOLI = [];
    Le sezioni ancora senza contenuti mostrano "Foto in arrivo". */
 window.COPERTINE_GALLERIA = {
   "Vita in allevamento": "galleria/rosa-prato-2.jpg",
-  "Esposizioni": "esposizioni/show/copertina-show.jpg",
+  "Esposizioni": "esposizioni/show/copertina-show-originale.jpg",
 };
 window.GALLERIA = [
   // { file: "klara-prato.jpg", testo: "Klara in giardino" },
@@ -51,7 +51,7 @@ window.GALLERIA = [
   { file: "galleria/rosa-prato-2.jpg", sezione: "Vita in allevamento", testo: "In giardino con i cuccioli" },
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
   // Esposizioni: "cane" raggruppa per cane, "evento" raggruppa le foto dello stesso evento (copertina: true = foto di copertina, diploma: true = documento)
-  { file: "esposizioni/show/copertina-show.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show" },
+  { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
 ];
 
 /* Cani esposti con noi che non sono in allevamento: nome (come nel campo "cane" della galleria) e titoli da mostrare */
@@ -61,5 +61,5 @@ window.ESPOSITORI = {
 
 /* Copertina della scheda di ogni cane nella pagina Esposizioni (file in foto/) */
 window.COPERTINE_CANE = {
-  "Show": "esposizioni/show/copertina-show.jpg",
+  "Show": "esposizioni/show/copertina-show-originale.jpg",
 };
