@@ -271,7 +271,40 @@
       document.title = qs + " · Il Tocco della Rosa";
       var qui = foto_.map(function (f, i) { return f.sezione === qs ? { f: f, i: i } : null; }).filter(Boolean);
       var cani_ = []; qui.forEach(function (x) { if (x.f.cane && cani_.indexOf(x.f.cane) < 0) cani_.push(x.f.cane); });
-      if (!qui.length) html = '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+      var qc = new URLSearchParams(location.search).get("cane");
+      if (qs === "Esposizioni" && qui.some(function (x) { return x.f.cane; })) {
+        var dati_ = function (n) { return (window.CANI || []).filter(function (d) { return d.nome === n; })[0]; };
+        var tit = function (n) { var c = dati_(n); return c && c.titoli ? c.titoli : (window.ESPOSITORI || {})[n] || []; };
+        var nomeCompleto = function (n) { var c = dati_(n); return c && c.pedigree ? c.pedigree : n; };
+        var elencoCani = []; qui.forEach(function (x) { if (x.f.cane && elencoCani.indexOf(x.f.cane) < 0) elencoCani.push(x.f.cane); });
+        if (qc && elencoCani.indexOf(qc) >= 0) {
+          // livello 2: una pagina sola per il cane, con le foto divise per evento
+          if (h1) h1.textContent = nomeCompleto(qc);
+          if (ld) ld.innerHTML = '<a href="galleria.html?sezione=Esposizioni">← Esposizioni</a>' + (tit(qc).length ? "<br>" + tit(qc).map(esc).join(" · ") : "");
+          document.title = nomeCompleto(qc) + " · Esposizioni · Il Tocco della Rosa";
+          var suoi = qui.filter(function (x) { return x.f.cane === qc; }), eventi = [];
+          suoi.forEach(function (x) { var k = x.f.evento || "Altre foto"; if (eventi.indexOf(k) < 0) eventi.push(k); });
+          eventi.forEach(function (k) {
+            var gr = suoi.filter(function (x) { return (x.f.evento || "Altre foto") === k; });
+            var d = gr[0].f.data;
+            html += '<div class="gruppo-cane"><h2>' + esc(k) + "</h2>" + (d ? '<p class="titoli-cane">' + esc(d) + "</p>" : "") +
+              '<div class="griglia-cane">' + gr.map(function (x) {
+                return '<figure><button type="button" data-ev="' + gr.map(function (y) { return y.i; }).join(",") + '" data-i="' + x.i + '" aria-label="Ingrandisci: ' + esc(x.f.testo) + '"><div class="petalo' + (x.f.diploma ? " doc" : "") + '"><img src="foto/' + esc(x.f.file) + '" alt="' + esc(x.f.testo) + '" loading="lazy"></div></button></figure>';
+              }).join("") + "</div></div>";
+          });
+        } else {
+          // livello 1: una scheda per cane
+          html = elencoCani.map(function (n) {
+            var mie = qui.filter(function (x) { return x.f.cane === n; });
+            var cop = (window.COPERTINE_CANE || {})[n] || mie[0].f.file;
+            var nt = tit(n).length;
+            return '<figure class="cartella"><a href="galleria.html?sezione=Esposizioni&cane=' + encodeURIComponent(n) + '"><div class="album"><span class="foglio f1"></span><span class="foglio f2"></span><div class="copertina-sez"><img src="foto/' + esc(cop) + '" alt="" loading="lazy">' +
+              '<span class="titolo-sez">' + esc(n) + '</span><span class="conta">' + (nt ? nt + (nt > 1 ? " titoli" : " titolo") + " · " : "") + "Apri le esposizioni</span></div></div></a></figure>";
+          }).join("");
+          var senza = qui.filter(function (x) { return !x.f.cane; });
+          if (senza.length) html += senza.map(function (x) { return voce(x.f, x.i); }).join("");
+        }
+      } else if (!qui.length) html = '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
       else if (!cani_.length) html = qui.map(function (x) { return voce(x.f, x.i); }).join("");
       else {
         // sezione catalogata per cane: un blocco con titoli per ciascuno, poi le foto senza cane

@@ -62,3 +62,8 @@ window.GALLERIA = [
 window.ESPOSITORI = {
   "Il Tocco della Rosa Gino": ["Campione Estero", "Campione Italiano"],
 };
+
+/* Copertina della scheda di ogni cane nella pagina Esposizioni (file in foto/) */
+window.COPERTINE_CANE = {
+  "Show": "esposizioni/show/copertina-show.jpg",
+};
