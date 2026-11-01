@@ -267,7 +267,7 @@
         cani_.forEach(function (n) {
           var c = (window.CANI || []).filter(function (d) { return d.nome === n; })[0];
           var tt = c && c.titoli ? c.titoli : (window.ESPOSITORI || {})[n];
-          html += blocco(n, tt ? tt.join(" · ") : "", qui.filter(function (x) { return x.f.cane === n; }));
+          html += blocco(c && c.pedigree ? c.pedigree : n, tt ? tt.join(" · ") : "", qui.filter(function (x) { return x.f.cane === n; }));
         });
         var altre = qui.filter(function (x) { return !x.f.cane; });
         if (altre.length) html += blocco("Altre foto", "", altre);
