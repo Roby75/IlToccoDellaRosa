@@ -70,7 +70,7 @@ window.GALLERIA = [
 ];
 
 /* Ordine dei cani nella pagina Esposizioni (il nome è quello del campo "cane" nelle foto) */
-window.ESPOSITORI_ORDINE = ["Show", "King", "Gino"];
+window.ESPOSITORI_ORDINE = ["King", "Gino", "Show"];
 /* Cani esposti con noi che non sono in allevamento: nome completo e titoli da mostrare */
 window.ESPOSITORI = {
   "Gino": { nome: "Il Tocco della Rosa Gino-PL", titoli: ["Campione Estero", "Campione Italiano"] },
