@@ -52,3 +52,8 @@ window.GALLERIA = [
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
   { file: "galleria/esposizione-royal-canin.jpg", sezione: "Esposizioni", testo: "In esposizione" },
 ];
+
+/* Cani esposti con noi che non sono in allevamento: nome (come nel campo "cane" della galleria) e titoli da mostrare */
+window.ESPOSITORI = {
+  "Il Tocco della Rosa Gino": ["Campione Estero", "Campione Italiano"],
+};
