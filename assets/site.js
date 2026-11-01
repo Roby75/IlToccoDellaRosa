@@ -314,13 +314,20 @@
         var conta = [nv ? nv + (nv > 1 ? " video" : " video") : "", nf ? nf + (nf > 1 ? " foto" : " foto") : ""].filter(Boolean).join(" · ");
         var prima = dentro.filter(function (f) { return f.file; })[0];
         var cop = (window.COPERTINE_GALLERIA || {})[t] || (prima && prima.file);
+        // carosello veloce delle foto della sezione (senza diplomi) al posto della copertina fissa
+        var giro = t === "Esposizioni" ? dentro.filter(function (f) { return f.file && !f.diploma; }) : [];
         var fondo = cop ? '<img' + (/originale/.test(cop) ? ' class="intera"' : '') + ' src="foto/' + esc(cop) + '" alt="" loading="lazy">' : '<span class="disegno">' + ICONA_ROSA + "</span>";
+        if (giro.length > 1) fondo = giro.map(function (f, n) { return '<img class="giro' + (n ? "" : " on") + '" src="foto/' + esc(f.file) + '" alt="" loading="lazy">'; }).join("");
         html += '<figure class="cartella"><a href="galleria.html?sezione=' + encodeURIComponent(t) + '"><div class="album"><span class="foglio f1"></span><span class="foglio f2"></span><div class="copertina-sez">' + fondo +
           (nv ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' : "") +
           '<span class="titolo-sez">' + t + '</span><span class="conta">Apri la galleria · ' + conta + "</span></div></div></a></figure>";
       });
     }
     gal.innerHTML = html;
+    gal.querySelectorAll(".copertina-sez").forEach(function (cs) {
+      var gi = cs.querySelectorAll("img.giro"); if (gi.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var n = 0; setInterval(function () { gi[n].classList.remove("on"); n = (n + 1) % gi.length; gi[n].classList.add("on"); }, 900);
+    });
     gal.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]"); if (!b) return;
         var lista = (b.getAttribute("data-ev") || b.getAttribute("data-i")).split(",").map(Number), pos = 0;
