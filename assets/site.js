@@ -254,8 +254,23 @@
       if (h1) h1.textContent = qs;
       if (ld) ld.innerHTML = '<a href="galleria.html">← Tutta la galleria</a>';
       document.title = qs + " · Il Tocco della Rosa";
-      html = foto_.map(function (f, i) { return f.sezione === qs ? voce(f, i) : ""; }).join("") ||
-        '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+      var qui = foto_.map(function (f, i) { return f.sezione === qs ? { f: f, i: i } : null; }).filter(Boolean);
+      var cani_ = []; qui.forEach(function (x) { if (x.f.cane && cani_.indexOf(x.f.cane) < 0) cani_.push(x.f.cane); });
+      if (!qui.length) html = '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+      else if (!cani_.length) html = qui.map(function (x) { return voce(x.f, x.i); }).join("");
+      else {
+        // sezione catalogata per cane: un blocco con titoli per ciascuno, poi le foto senza cane
+        var blocco = function (nome, titoli, elenco) {
+          return '<div class="gruppo-cane"><h2>' + esc(nome) + "</h2>" + (titoli ? '<p class="titoli-cane">' + esc(titoli) + "</p>" : "") +
+            '<div class="griglia-cane">' + elenco.map(function (x) { return voce(x.f, x.i); }).join("") + "</div></div>";
+        };
+        cani_.forEach(function (n) {
+          var c = (window.CANI || []).filter(function (d) { return d.nome === n; })[0];
+          html += blocco(n, c && c.titoli ? c.titoli.join(" · ") : "", qui.filter(function (x) { return x.f.cane === n; }));
+        });
+        var altre = qui.filter(function (x) { return !x.f.cane; });
+        if (altre.length) html += blocco("Altre foto", "", altre);
+      }
     } else {
       // galleria: foto senza sezione, poi una casella per ogni sezione
       html = foto_.map(function (f, i) { return f.sezione ? "" : voce(f, i); }).join("");
