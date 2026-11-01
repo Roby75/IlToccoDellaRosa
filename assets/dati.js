@@ -51,6 +51,8 @@ window.GALLERIA = [
   { file: "galleria/rosa-prato-2.jpg", sezione: "Vita in allevamento", testo: "In giardino con i cuccioli" },
   { file: "galleria/rosa-prato-1.jpg", sezione: "Vita in allevamento", testo: "Coccole sul prato" },
   // Esposizioni: "cane" raggruppa per cane, "evento" raggruppa le foto dello stesso evento (copertina: true = foto di copertina, diploma: true = documento)
+  { file: "esposizioni/show/2022-11-03-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Campione Italiano di Bellezza", data: "3 novembre 2022", diploma: true, testo: "Diploma di Campione Italiano di Bellezza, 3 novembre 2022" },
+  { file: "esposizioni/show/2022-04-20-giovane-campione-italiano.jpg", sezione: "Esposizioni", cane: "Show", evento: "Giovane Campione Italiano di Bellezza", data: "20 aprile 2022", diploma: true, testo: "Diploma di Giovane Campione Italiano di Bellezza, 20 aprile 2022" },
   { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
 ];
 
