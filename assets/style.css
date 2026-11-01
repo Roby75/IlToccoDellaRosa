@@ -338,3 +338,8 @@ footer.piede .fine{border-top:0;padding-top:0;margin:0;text-align:center;font-si
 .gruppo-cane h2::after{content:"";flex:1;height:1px;background:currentColor;opacity:.25}
 .titoli-cane{margin:0 0 .8rem;font-size:.9rem;opacity:.75}
 .griglia-cane{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.galleria .petalo.doc{aspect-ratio:4/3;border-radius:.6rem;background:#fff}
+.galleria .petalo.doc img{object-fit:contain}
+.galleria figcaption small{opacity:.75}
+.lightbox .sfoglia{display:flex;gap:.8rem;justify-content:center;margin-top:.8rem}
+.lightbox .sfoglia button{position:static}

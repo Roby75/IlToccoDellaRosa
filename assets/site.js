@@ -247,6 +247,21 @@
       return '<figure><button type="button" data-i="' + i + '" aria-label="Ingrandisci: ' + esc(f.testo) + '"><div class="petalo"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '" loading="lazy"></div></button>' +
           (f.testo ? "<figcaption>" + esc(f.testo) + "</figcaption>" : "") + "</figure>";
     };
+    // foto con lo stesso "evento": una sola scheda con la copertina, un clic apre tutte le foto dell'evento
+    var schede = function (elenco) {
+      var visti = {}, h = "";
+      elenco.forEach(function (x) {
+        if (!x.f.evento) { h += voce(x.f, x.i); return; }
+        if (visti[x.f.evento]) return; visti[x.f.evento] = 1;
+        var gruppo = elenco.filter(function (y) { return y.f.evento === x.f.evento; });
+        var cop = gruppo.filter(function (y) { return y.f.copertina; })[0] || gruppo[0];
+        var ids = gruppo.map(function (y) { return y.i; }).join(",");
+        var conta = gruppo.length + (gruppo.length > 1 ? " foto" : " foto");
+        h += '<figure><button type="button" data-ev="' + ids + '" data-i="' + cop.i + '" aria-label="Apri ' + esc(x.f.evento) + '"><div class="petalo' + (cop.f.diploma ? " doc" : "") + '"><img src="foto/' + esc(cop.f.file) + '" alt="' + esc(x.f.evento) + '" loading="lazy"></div></button>' +
+          "<figcaption>" + esc(x.f.evento) + (x.f.data ? "<br><small>" + esc(x.f.data) + " · " + conta + "</small>" : "<br><small>" + conta + "</small>") + "</figcaption></figure>";
+      });
+      return h;
+    };
     var qs = new URLSearchParams(location.search).get("sezione"), html = "";
     if (qs && sezioni.indexOf(qs) >= 0) {
       // pagina di una sezione: tutti i video e le foto di quell'argomento
@@ -262,7 +277,7 @@
         // sezione catalogata per cane: un blocco con titoli per ciascuno, poi le foto senza cane
         var blocco = function (nome, titoli, elenco) {
           return '<div class="gruppo-cane"><h2>' + esc(nome) + "</h2>" + (titoli ? '<p class="titoli-cane">' + esc(titoli) + "</p>" : "") +
-            '<div class="griglia-cane">' + elenco.map(function (x) { return voce(x.f, x.i); }).join("") + "</div></div>";
+            '<div class="griglia-cane">' + schede(elenco) + "</div></div>";
         };
         cani_.forEach(function (n) {
           var c = (window.CANI || []).filter(function (d) { return d.nome === n; })[0];
@@ -291,15 +306,24 @@
     gal.innerHTML = html;
     gal.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]"); if (!b) return;
-        var f = foto_[+b.getAttribute("data-i")];
+        var lista = (b.getAttribute("data-ev") || b.getAttribute("data-i")).split(",").map(Number), pos = 0;
         var box = document.createElement("div");
-        box.className = "lightbox"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", f.testo || "Foto");
-        box.innerHTML = '<button type="button">Chiudi</button><figure style="margin:0"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '"><p>' + esc(f.testo) + "</p></figure>";
+        box.className = "lightbox"; box.setAttribute("role", "dialog");
+        var disegna = function () {
+          var f = foto_[lista[pos]];
+          box.setAttribute("aria-label", f.testo || "Foto");
+          box.innerHTML = '<button type="button" data-az="x">Chiudi</button><figure style="margin:0"><img src="foto/' + esc(f.file) + '" alt="' + esc(f.testo) + '"><p>' + esc(f.testo) + (lista.length > 1 ? " · " + (pos + 1) + "/" + lista.length : "") + "</p></figure>" +
+            (lista.length > 1 ? '<div class="sfoglia"><button type="button" data-az="p">‹ Precedente</button><button type="button" data-az="n">Successiva ›</button></div>' : "");
+        };
         var chiudi = function () { box.remove(); document.removeEventListener("keydown", tasto); b.focus(); };
-        var tasto = function (ev) { if (ev.key === "Escape") chiudi(); };
-        box.addEventListener("click", function (ev) { if (ev.target === box || ev.target.tagName === "BUTTON") chiudi(); });
+        var vai = function (d) { pos = (pos + d + lista.length) % lista.length; disegna(); };
+        var tasto = function (ev) { if (ev.key === "Escape") chiudi(); else if (lista.length > 1 && ev.key === "ArrowRight") vai(1); else if (lista.length > 1 && ev.key === "ArrowLeft") vai(-1); };
+        box.addEventListener("click", function (ev) {
+          var az = ev.target.getAttribute && ev.target.getAttribute("data-az");
+          if (ev.target === box || az === "x") chiudi(); else if (az === "n") vai(1); else if (az === "p") vai(-1);
+        });
         document.addEventListener("keydown", tasto);
-        document.body.appendChild(box); box.querySelector("button").focus();
+        disegna(); document.body.appendChild(box); box.querySelector("button").focus();
       });
   }
 
