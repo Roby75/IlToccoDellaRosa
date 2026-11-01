@@ -331,6 +331,7 @@
     gal.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]"); if (!b) return;
         var lista = (b.getAttribute("data-ev") || b.getAttribute("data-i")).split(",").map(Number), pos = 0;
+        pos = Math.max(0, lista.indexOf(+b.getAttribute("data-i")));
         var box = document.createElement("div");
         box.className = "lightbox"; box.setAttribute("role", "dialog");
         var disegna = function () {
