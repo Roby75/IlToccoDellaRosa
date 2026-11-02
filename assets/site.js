@@ -205,6 +205,7 @@
     var filtro = "tutti";
     var disegna = function () {
       var lista = (window.CANI || []).filter(function (c) {
+        if (c.veterano) return false; // i veterani stanno solo nella loro sezione
         return filtro === "tutti" || filtro === c.sesso || filtro === c.pelo;
       });
       gCani.innerHTML = lista.map(function (c) { return scheda(c, false); }).join("") || '<p class="muted">Nessun cane per questo filtro.</p>';
