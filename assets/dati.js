@@ -69,6 +69,7 @@ window.GALLERIA = [
   { file: "esposizioni/show/in-ring-2.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
   { file: "esposizioni/show/in-ring-3.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
   { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
+  { file: "esposizioni/king/king-1.jpg", sezione: "Esposizioni", cane: "King", testo: "King" },
 ];
 
 /* Ordine dei cani nella pagina Esposizioni (il nome è quello del campo "cane" nelle foto) */
