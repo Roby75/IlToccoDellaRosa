@@ -136,6 +136,9 @@
 
   /* scheda di un cane o cucciolo */
   function foto(file, alt) {
+    // più foto (lista): carosello a dissolvenza, come nella galleria
+    if (Array.isArray(file) && file.length > 1) return '<div class="petalo giostra">' + file.map(function (f, i) { return '<img class="giro' + (i ? "" : " on") + '" src="foto/' + esc(f) + '" alt="' + esc(alt) + '" loading="lazy">'; }).join("") + "</div>";
+    if (Array.isArray(file)) file = file[0];
     if (file) return '<div class="petalo"><img src="foto/' + esc(file) + '" alt="' + esc(alt) + '" loading="lazy"></div>';
     return '<div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div>";
   }
@@ -144,14 +147,14 @@
     var sesso = c.sesso === "F" ? (cucciolo ? "Femmina" : "Fattrice") : (cucciolo ? "Maschio" : "Stallone");
     var righe = "";
     if (c.colore) righe += "<dt>Colore</dt><dd>" + esc(c.colore) + "</dd>";
-    righe += "<dt>" + (cucciolo ? "Nato il" : "Nascita") + "</dt><dd>" + esc(c.nascita) + "</dd>";
+    if (c.nascita) righe += "<dt>" + (cucciolo ? "Nato il" : "Nascita") + "</dt><dd>" + esc(c.nascita) + "</dd>";
     if (c.madre || c.padre) righe += "<dt>Genitori</dt><dd>" + esc(c.madre) + " × " + esc(c.padre) + "</dd>";
     if (c.origine) righe += "<dt>Origine</dt><dd>" + esc(c.origine) + "</dd>";
     if (c.test && c.test.length) righe += "<dt>Test sanitari</dt><dd>" + c.test.map(function (t) { return esc(t.nome) + ": <strong>" + esc(t.esito) + "</strong>"; }).join("<br>") + "</dd>";
     if (c.dna) righe += "<dt>DNA</dt><dd>Depositato ENCI</dd>";
     if (c.titoli && c.titoli.length) righe += "<dt>Titoli</dt><dd>" + c.titoli.map(esc).join("<br>") + "</dd>";
     var stato = c.stato ? '<span class="etichetta ' + (c.stato === "Disponibile" ? "m" : "") + '">' + esc(c.stato) + "</span>" : "";
-    return '<article class="cane">' + foto(c.foto, c.nome) + (c.credito ? '<p class="credito">' + esc(c.credito) + "</p>" : "") +
+    return '<article class="cane">' + foto(c.foto, c.nome) + (c.credito ? '<p class="credito">' + esc(c.credito) + "</p>" : "") + (c.didascalia ? '<p class="credito">' + esc(c.didascalia) + "</p>" : "") +
       '<div class="corpo"><div class="etichette"><span class="etichetta ' + (c.sesso === "F" ? "f" : "m") + '">' + sesso + "</span>" +
       (pelo ? '<span class="etichetta">' + pelo + "</span>" : "") + stato + "</div>" +
       "<h3>" + esc(c.pedigree || c.nome || "Cucciolo") + "</h3>" + (c.pedigree ? '<p class="detto">' + (c.sesso === "F" ? "detta " : "detto ") + esc(c.nome) + "</p>" : "") + "<dl>" + righe + "</dl>" +
@@ -226,14 +229,24 @@
     animaSchede();
   }
 
+  /* schede con più foto: cambio a dissolvenza ogni 3 secondi (fermo se è attivo "riduci movimento") */
+  function giraFoto() {
+    if (!movimento) return;
+    document.querySelectorAll(".giostra").forEach(function (g) {
+      var gi = g.querySelectorAll("img.giro"), n = 0;
+      if (gi.length < 2) return;
+      setInterval(function () { gi[n].classList.remove("on"); n = (n + 1) % gi.length; gi[n].classList.add("on"); }, 3000);
+    });
+  }
+
   /* pagina Cuccioli */
   var gCuc = document.getElementById("griglia-cuccioli");
   if (gCuc) {
     var cuc = window.CUCCIOLI || [];
     if (cuc.length) {
       gCuc.innerHTML = cuc.map(function (c) { return scheda(c, true); }).join("");
-      var vuoto = document.getElementById("nessun-cucciolo");
-      if (vuoto) vuoto.hidden = true;
+      // il box "lista d'attesa" resta sempre visibile, anche con cuccioli in lista
+      giraFoto();
     } else gCuc.hidden = true;
   }
 

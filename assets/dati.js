@@ -33,7 +33,9 @@ window.CANI = [
    Quando hai cuccioli da proporre, aggiungi una riga per ciascuno, per esempio:
    { nome: "Rosa", sesso: "F", nascita: "10/01/2027", pelo: "PL", colore: "Crema", madre: "Klara", padre: "King", stato: "Disponibile", foto: "rosa.jpg" },
    stato: "Disponibile" oppure "Prenotato". Se la lista è vuota il sito mostra il messaggio della lista d'attesa. */
-window.CUCCIOLI = [];
+window.CUCCIOLI = [
+  { nome: "Pippo", sesso: "M", nascita: "", pelo: "PC", colore: "Fulvo e bianco", madre: "Il Tocco della Rosa Olivia", padre: "The Greatest Showman La Casa dei Giganti", origine: "Nato da noi", stato: "Non disponibile", didascalia: "Non disponibile al momento", foto: ["cuccioli/pippo-1.jpg", "cuccioli/pippo-2.jpg"], nota: "Pippo è un maschietto fulvo e bianco, a pelo corto, figlio di Olivia e Show. Al momento non è disponibile." }
+];
 
 /* GALLERIA
    Per ogni foto: file (nella cartella foto/) e una breve didascalia.
