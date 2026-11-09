@@ -135,7 +135,7 @@ main{display:block}
 .etichetta.ok{background:#1e8e3e;color:#ffe600}
 .etichetta.pr{background:#ffe600;color:#c8102e}
 .etichetta.nd{background:#c8102e;color:#ffe600}
-.legenda{margin:1rem 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;font-size:.8rem;color:var(--muted)}
+.legenda{margin:1rem 0 0;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;font-size:.8rem;color:var(--muted)}
 .legenda strong{font-weight:700;flex-basis:100%}
 .legenda>span{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
 .cane dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.15rem .8rem;font-size:.92rem}
