@@ -245,9 +245,11 @@
     var cuc = window.CUCCIOLI || [];
     if (cuc.length) {
       gCuc.innerHTML = cuc.map(function (c) { return scheda(c, true); }).join("");
-      // il box "lista d'attesa" resta sempre visibile, anche con cuccioli in lista
       giraFoto();
     } else gCuc.hidden = true;
+    // il box "lista d'attesa" si vede solo se nessun cucciolo è disponibile
+    var boxAttesa = document.getElementById("nessun-cucciolo");
+    if (boxAttesa) boxAttesa.hidden = cuc.some(function (c) { return c.stato === "Disponibile"; });
   }
 
   /* galleria */
