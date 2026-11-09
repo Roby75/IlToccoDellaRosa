@@ -386,6 +386,14 @@
         else mostra("errore", "Il modulo non è ancora attivo. Nel frattempo scrivici su WhatsApp o su Facebook.");
         return;
       }
+      /* copia delle richieste nello Sheet "Richieste" (Google Apps Script); l'email Web3Forms resta attiva */
+      if (S.sheetUrl) {
+        try {
+          var r = new FormData();
+          ["nome", "telefono", "email", "interesse", "pelo", "messaggio"].forEach(function (k) { r.append(k, d.get(k) || ""); });
+          fetch(S.sheetUrl, { method: "POST", body: r, mode: "no-cors", keepalive: true }).catch(function () {});
+        } catch (x) {}
+      }
       d.append("access_key", S.web3formsKey);
       d.append("subject", "Nuovo messaggio dal sito – " + d.get("nome"));
       d.append("from_name", "Sito Il Tocco della Rosa");

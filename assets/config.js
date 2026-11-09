@@ -15,6 +15,8 @@ window.SITO = {
   // Chiave Web3Forms per ricevere i messaggi del modulo contatti via email.
   // Si ottiene gratis su https://web3forms.com inserendo l'email dell'allevamento.
   web3formsKey: "00769613-7ac1-44c6-b041-0d73744eadc9",
+  // Indirizzo dello script Google che copia le richieste del modulo nello Sheet "Richieste". Vuoto = disattivato.
+  sheetUrl: "",
   // Foto di copertina della home: nome del file nella cartella foto/ (es. "copertina.jpg").
   copertina: "copertina-cani.jpg",
   // Foto panoramica nel banner sopra il menu, in tutte le pagine: nome del file nella cartella foto/ (es. "panoramica.jpg").
