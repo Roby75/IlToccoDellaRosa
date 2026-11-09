@@ -70,13 +70,14 @@ window.GALLERIA = [
   { file: "esposizioni/show/in-ring-3.jpg", sezione: "Esposizioni", cane: "Show", testo: "Show in ring" },
   { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
   { file: "esposizioni/king/king-1.jpg", sezione: "Esposizioni", cane: "King", testo: "King" },
+  { file: "esposizioni/gino/gino-1.webp", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
 ];
 
 /* Ordine dei cani nella pagina Esposizioni (il nome è quello del campo "cane" nelle foto) */
 window.ESPOSITORI_ORDINE = ["King", "Gino", "Show"];
 /* Cani esposti con noi che non sono in allevamento: nome completo e titoli da mostrare */
 window.ESPOSITORI = {
-  "Gino": { nome: "Il Tocco della Rosa Gino-PL", titoli: ["Campione Estero", "Campione Italiano"] },
+  "Gino": { nome: "Il Tocco della Rosa Gino-PL", titoli: ["Campione Estero", "Campione Italiano", "Campione Internazionale"] },
 };
 
 /* Copertina della scheda di ogni cane nella pagina Esposizioni (file in foto/) */
