@@ -132,6 +132,7 @@ main{display:block}
 .etichetta{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2rem;background:var(--surface-2);color:var(--muted)}
 .etichetta.f{background:var(--rosa-soft);color:var(--rosa)}
 .etichetta.m{background:var(--foglia-soft);color:var(--foglia)}
+.etichetta.nd{background:#c8102e;color:#ffe600}
 .cane dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.15rem .8rem;font-size:.92rem}
 .cane dt{color:var(--muted)}
 .cane dd{margin:0;min-width:0}

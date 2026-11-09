@@ -153,7 +153,7 @@
     if (c.test && c.test.length) righe += "<dt>Test sanitari</dt><dd>" + c.test.map(function (t) { return esc(t.nome) + ": <strong>" + esc(t.esito) + "</strong>"; }).join("<br>") + "</dd>";
     if (c.dna) righe += "<dt>DNA</dt><dd>Depositato ENCI</dd>";
     if (c.titoli && c.titoli.length) righe += "<dt>Titoli</dt><dd>" + c.titoli.map(esc).join("<br>") + "</dd>";
-    var stato = c.stato ? '<span class="etichetta ' + (c.stato === "Disponibile" ? "m" : "") + '">' + esc(c.stato) + "</span>" : "";
+    var stato = c.stato ? '<span class="etichetta ' + (c.stato === "Disponibile" ? "m" : c.stato === "Non disponibile" ? "nd" : "") + '">' + esc(c.stato) + "</span>" : "";
     return '<article class="cane">' + foto(c.foto, c.nome) + (c.credito ? '<p class="credito">' + esc(c.credito) + "</p>" : "") + (c.didascalia ? '<p class="credito">' + esc(c.didascalia) + "</p>" : "") +
       '<div class="corpo"><div class="etichette"><span class="etichetta ' + (c.sesso === "F" ? "f" : "m") + '">' + sesso + "</span>" +
       (pelo ? '<span class="etichetta">' + pelo + "</span>" : "") + stato + "</div>" +
