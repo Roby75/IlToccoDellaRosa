@@ -389,7 +389,7 @@
       /* copia delle richieste nello Sheet "Richieste" (Google Apps Script); l'email Web3Forms resta attiva */
       if (S.sheetUrl) {
         try {
-          var r = new FormData();
+          var r = new URLSearchParams();
           ["nome", "telefono", "email", "interesse", "pelo", "messaggio"].forEach(function (k) { r.append(k, d.get(k) || ""); });
           fetch(S.sheetUrl, { method: "POST", body: r, mode: "no-cors", keepalive: true }).catch(function () {});
         } catch (x) {}
