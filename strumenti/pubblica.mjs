@@ -36,7 +36,8 @@ nonSalvati.forEach((r) => console.log("  • da salvare: " + r));
 // 2. test
 console.log("\nLancio i test…");
 const t = spawnSync(process.execPath, ["--test", "tests/sito.test.mjs"], { cwd: RADICE, encoding: "utf8" });
-const riga = (k) => (t.stdout.match(new RegExp("^# " + k + " (\\d+)", "m")) || [])[1];
+// "# pass 6" (vecchie versioni di Node) oppure "ℹ pass 6" (Node 23 e successive)
+const riga = (k) => (t.stdout.match(new RegExp("^(?:#|ℹ) " + k + " (\\d+)", "m")) || [])[1] ?? "?";
 console.log("Test: " + riga("pass") + " ok, " + riga("fail") + " falliti.");
 if (t.status !== 0) {
   console.error("\nPUBBLICAZIONE RIFIUTATA: un test è fallito.\n" + t.stdout.split("\n").filter((l) => /^not ok|^\s+[+-] |error:/.test(l)).join("\n"));
