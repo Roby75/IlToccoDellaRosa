@@ -1,5 +1,8 @@
 # Registro delle pubblicazioni
 
+## v5 – 12/11/2026
+- Tolto il commento di prova da index.html; script di pubblicazione: nomi delle pagine da controllare corretti
+
 ## v4 – 12/11/2026
 - Prova di pubblicazione: commento nascosto in index.html
 

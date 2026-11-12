@@ -57,7 +57,8 @@ const [titolo, ...resto] = vecchio.split("\n");
 fs.writeFileSync(fileLog, titolo + "\n" + voce + resto.join("\n"));
 
 // 4. salvo e pubblico
-const fileCambiati = new Set(nonSalvati.map((r) => r.slice(3)).concat(git("diff", "--name-only", "origin/main..HEAD").split("\n")).filter(Boolean));
+// la prima riga di "git status" arriva senza lo spazio iniziale (trim): tolgo lo stato con una regola che vale per tutte
+const fileCambiati = new Set(nonSalvati.map((r) => r.replace(/^.{1,2}\s/, "")).concat(git("diff", "--name-only", "origin/main..HEAD").split("\n")).filter(Boolean));
 git("add", "-A");
 git("commit", "-m", messaggio || "Registro modifiche " + versione);
 git("push", "origin", "main");
