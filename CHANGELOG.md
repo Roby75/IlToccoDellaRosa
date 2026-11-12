@@ -1,5 +1,8 @@
 # Registro delle pubblicazioni
 
+## v4 – 12/11/2026
+- Prova di pubblicazione: commento nascosto in index.html
+
 ## v3 – 12/11/2026
 - Script di pubblicazione: conteggio test compatibile con Node 26
 
