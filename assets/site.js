@@ -278,8 +278,28 @@
       });
       return h;
     };
-    var qs = new URLSearchParams(location.search).get("sezione"), html = "";
-    if (qs && sezioni.indexOf(qs) >= 0) {
+    var parametri = new URLSearchParams(location.search);
+    var qs = parametri.get("sezione"), qcane = parametri.get("cane"), html = "";
+    if (qcane && !qs) {
+      // pagina di un cane (cane.html?cane=Gino): nome da pedigree, titoli e tutte le sue foto
+      var nomeCane = qcane;
+      var datiCane = (window.CANI || []).filter(function (d) { return d.nome === nomeCane; })[0];
+      var espCane = (window.ESPOSITORI || {})[nomeCane] || {};
+      var titoloCane = datiCane && datiCane.pedigree ? datiCane.pedigree : espCane.nome || nomeCane;
+      var titoliCane = datiCane && datiCane.titoli ? datiCane.titoli : espCane.titoli || [];
+      var h1c = document.querySelector(".intestazione h1"), tc = document.getElementById("cane-titoli");
+      if (h1c) h1c.textContent = titoloCane;
+      if (tc) tc.textContent = titoliCane.join(" · ");
+      document.title = titoloCane + " · Il Tocco della Rosa";
+      var fotoCane = foto_.map(function (f, i) { return f.cane === nomeCane && f.file ? { f: f, i: i } : null; }).filter(Boolean);
+      if (!fotoCane.length) html = '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+      else {
+        var idsCane = fotoCane.map(function (x) { return x.i; }).join(",");
+        html = fotoCane.map(function (x) {
+          return '<figure><button type="button" data-ev="' + idsCane + '" data-i="' + x.i + '" aria-label="Ingrandisci: ' + esc(x.f.testo) + '"><div class="petalo"><img src="foto/' + esc(x.f.file) + '" alt="' + esc(x.f.testo) + '" loading="lazy"></div></button></figure>';
+        }).join("");
+      }
+    } else if (qs && sezioni.indexOf(qs) >= 0) {
       // pagina di una sezione: tutti i video e le foto di quell'argomento
       var h1 = document.querySelector(".intestazione h1"), ld = document.querySelector(".intestazione .lead");
       if (h1) h1.textContent = qs;
@@ -289,18 +309,18 @@
       var cani_ = []; qui.forEach(function (x) { if (x.f.cane && cani_.indexOf(x.f.cane) < 0) cani_.push(x.f.cane); });
       var qc = new URLSearchParams(location.search).get("cane");
       if (qs === "Esposizioni" && qui.some(function (x) { return x.f.cane; })) {
-        var dati_ = function (n) { return (window.CANI || []).filter(function (d) { return d.nome === n; })[0]; };
-        var tit = function (n) { var c = dati_(n), e = (window.ESPOSITORI || {})[n]; return c && c.titoli ? c.titoli : (e && e.titoli) || []; };
-        var nomeCompleto = function (n) { var c = dati_(n), e = (window.ESPOSITORI || {})[n]; return c && c.pedigree ? c.pedigree : (e && e.nome) || n; };
         var elencoCani = (window.ESPOSITORI_ORDINE || []).slice(); qui.forEach(function (x) { if (x.f.cane && elencoCani.indexOf(x.f.cane) < 0) elencoCani.push(x.f.cane); });
-        // un solo livello: un blocco per cane con nome da pedigree, titoli e tutte le foto (diplomi compresi) in un'unica griglia
+        var datiDi = function (n) { return (window.CANI || []).filter(function (d) { return d.nome === n; })[0]; };
+        var titoliDi = function (n) { var c = datiDi(n), e = (window.ESPOSITORI || {})[n]; return c && c.titoli ? c.titoli : (e && e.titoli) || []; };
+        var nomeDi = function (n) { var c = datiDi(n), e = (window.ESPOSITORI || {})[n]; return c && c.pedigree ? c.pedigree : (e && e.nome) || n; };
+        // una scheda per cane: foto di copertina, poi nome da pedigree e titoli (come prima). Un clic apre la pagina del cane con tutte le sue foto
         html = elencoCani.map(function (n) {
-          var mie = qui.filter(function (x) { return x.f.cane === n; }).sort(function (a, b) { return (b.f.diploma ? 1 : 0) - (a.f.diploma ? 1 : 0) || a.i - b.i; }); // diplomi sempre per primi
-          var ids = mie.map(function (y) { return y.i; }).join(",");
-          return '<div class="gruppo-cane"><h2>' + esc(nomeCompleto(n)) + "</h2>" + (tit(n).length ? '<p class="titoli-cane">' + tit(n).map(esc).join(" · ") + "</p>" : "") +
-            '<div class="griglia-cane">' + (mie.length ? "" : '<figure><div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>") + mie.map(function (x) {
-              return '<figure><button type="button" data-ev="' + ids + '" data-i="' + x.i + '" aria-label="Ingrandisci: ' + esc(x.f.testo) + '"><div class="petalo' + (x.f.diploma ? " doc" : "") + '"><img src="foto/' + esc(x.f.file) + '" alt="' + esc(x.f.testo) + '" loading="lazy"></div></button><figcaption>' + esc(x.f.evento ? x.f.evento + (x.f.data ? " · " + x.f.data : "") : x.f.testo) + "</figcaption></figure>";
-            }).join("") + "</div></div>";
+          var mie = qui.filter(function (x) { return x.f.cane === n; });
+          var copC = (window.COPERTINE_CANE || {})[n] || (mie[0] && mie[0].f.file);
+          var tt = titoliDi(n);
+          var info = "<figcaption><strong>" + esc(nomeDi(n)) + "</strong>" + (tt.length ? "<br><small>" + tt.map(esc).join(" · ") + "</small>" : "") + "</figcaption>";
+          if (!copC) return '<figure>' + info + '<div class="petalo foto-vuota"><div>' + ICONA_ROSA + "Foto in arrivo</div></div></figure>";
+          return '<figure class="cartella">' + info + '<a href="cane.html?cane=' + encodeURIComponent(n) + '"><div class="album"><span class="foglio f1"></span><span class="foglio f2"></span><div class="copertina-sez"><img src="foto/' + esc(copC) + '" alt="" loading="lazy"></div><span class="titolo-sez">' + esc(n) + '</span><span class="conta">Apri la scheda · ' + mie.length + " foto</span></div></a></figure>";
         }).join("");
         var senza = qui.filter(function (x) { return !x.f.cane; });
         if (senza.length) html += senza.map(function (x) { return voce(x.f, x.i); }).join("");

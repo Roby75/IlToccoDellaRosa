@@ -71,6 +71,13 @@ window.GALLERIA = [
   { file: "esposizioni/show/copertina-show-originale.jpg", sezione: "Esposizioni", cane: "Show", diploma: true, testo: "Show" },
   { file: "esposizioni/king/king-1.jpg", sezione: "Esposizioni", cane: "King", testo: "King" },
   { file: "esposizioni/gino/gino-1.webp", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-2.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-3.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-4.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-5.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-6.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-7.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
+  { file: "esposizioni/gino/gino-8.jpg", sezione: "Esposizioni", cane: "Gino", testo: "Gino" },
 ];
 
 /* Ordine dei cani nella pagina Esposizioni (il nome è quello del campo "cane" nelle foto) */
@@ -83,4 +90,5 @@ window.ESPOSITORI = {
 /* Copertina della scheda di ogni cane nella pagina Esposizioni (file in foto/) */
 window.COPERTINE_CANE = {
   "Show": "esposizioni/show/copertina-show-originale.jpg",
+  "Gino": "esposizioni/gino/gino-6.jpg",
 };
