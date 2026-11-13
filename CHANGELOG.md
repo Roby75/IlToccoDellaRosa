@@ -1,5 +1,8 @@
 # Registro delle pubblicazioni
 
+## v8 – 13/11/2026
+- Etichette dei cani e dei cuccioli più piccole: stato (es. Non disponibile) sulla stessa riga delle altre
+
 ## v7 – 13/11/2026
 - Esposizioni: titolo della pagina cambiato in Esposizioni - i nostri campioni
 

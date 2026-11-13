@@ -129,7 +129,7 @@ main{display:block}
 .cane .corpo{padding:1rem 1.1rem 1.2rem;display:grid;gap:.45rem;align-content:start}
 .cane h3{font-size:1.7rem}
 .etichette{display:flex;flex-wrap:wrap;gap:.35rem}
-.etichetta{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2rem;background:var(--surface-2);color:var(--muted)}
+.etichetta{font-size:.62rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:.2rem .45rem;border-radius:2rem;background:var(--surface-2);color:var(--muted)}
 .etichetta.f{background:var(--rosa-soft);color:var(--rosa)}
 .etichetta.m{background:var(--foglia-soft);color:var(--foglia)}
 .etichetta.ok{background:#1e8e3e;color:#ffe600}
