@@ -302,9 +302,10 @@
     } else if (qs && sezioni.indexOf(qs) >= 0) {
       // pagina di una sezione: tutti i video e le foto di quell'argomento
       var h1 = document.querySelector(".intestazione h1"), ld = document.querySelector(".intestazione .lead");
-      if (h1) h1.textContent = qs;
+      var titoloSezione = qs === "Esposizioni" ? "Esposizioni - i nostri campioni" : qs;
+      if (h1) h1.textContent = titoloSezione;
       if (ld) ld.innerHTML = '<a href="galleria.html">← Tutta la galleria</a>';
-      document.title = qs + " · Il Tocco della Rosa";
+      document.title = titoloSezione + " · Il Tocco della Rosa";
       var qui = foto_.map(function (f, i) { return f.sezione === qs ? { f: f, i: i } : null; }).filter(Boolean);
       var cani_ = []; qui.forEach(function (x) { if (x.f.cane && cani_.indexOf(x.f.cane) < 0) cani_.push(x.f.cane); });
       var qc = new URLSearchParams(location.search).get("cane");

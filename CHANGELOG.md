@@ -1,5 +1,8 @@
 # Registro delle pubblicazioni
 
+## v7 – 13/11/2026
+- Esposizioni: titolo della pagina cambiato in Esposizioni - i nostri campioni
+
 ## v6 – 13/11/2026
 - Galleria: pagina dedicata per ogni cane (Gino, King, Show) con nome da pedigree e titoli; nuove foto di Gino nella sezione Esposizioni
 
